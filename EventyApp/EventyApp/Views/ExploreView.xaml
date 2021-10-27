@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventyApp.Views.ExploreView">
+    <ContentView.Content>
+        <ScrollView>
+            <Grid BackgroundColor="White">
+                <Image Source="BackgroundImage4.jpg"  VerticalOptions="Start"/>
+                <StackLayout Spacing="-5">
+                    <Frame Margin="20,20,20,5" CornerRadius="50" BackgroundColor="White" HeightRequest="42" WidthRequest="20" Padding="0">
+                        <SearchBar SearchCommand="{Binding SearchCommand}" Placeholder="Let's start your event" BackgroundColor="White" TextColor="Black" FontSize="16" FontAttributes="Bold" HeightRequest="15" WidthRequest="20"/>
+                    </Frame>
+                    <Image Margin="10" Source="Srearch.png" HeightRequest="10" WidthRequest="10"/>
+                    <Label Margin="10,0" Text="The" Style="{StaticResource labelStyle}" TextColor="White" FontAttributes="Bold" FontSize="40"/>
+                    <Label Margin="10,0" Text="Greatest" Style="{StaticResource labelStyle}" TextColor="White" FontAttributes="Bold" FontSize="40"/>
+                    <Label Margin="10,0" Text="Moments" Style="{StaticResource labelStyle}" TextColor="White" FontAttributes="Bold" FontSize="40"/>
+                    <Button Margin="10,15,290,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Get inspired" Command="{Binding InspiredCommand}" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                    <Label Margin="10,20,0,0" Text="Dreams come true with eventy" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                    <Label Margin="10,180,0,0" Text="Explore nearby" TextColor="Black" FontSize="24" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>
