@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace EventyApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpView : ContentView
+    public partial class SignUpView : ContentPage
     {
         public SignUpView()
         {

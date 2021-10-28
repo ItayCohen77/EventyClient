@@ -5,7 +5,8 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:tabs="http://sharpnado.com"
              xmlns:views="clr-namespace:EventyApp.Views"
-             x:Class="EventyApp.Views.TabControlView">
+             x:Class="EventyApp.Views.TabControlView"
+             NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -34,7 +35,7 @@
                        Animate="False"
                        SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
                 <views:ExploreView />
-                <views:SignUpView />
+                <Label Text="Hello world 2"/>
                 <Label Text="Hello world 3"/>
                 <Label Text="Hello world 4"/>
                 <views:ProfileView />
