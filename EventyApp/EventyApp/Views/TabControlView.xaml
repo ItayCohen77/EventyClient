@@ -39,6 +39,7 @@
                 <Label Text="Hello world 3"/>
                 <Label Text="Hello world 4"/>
                 <views:ProfileView />
+                
             </tabs:ViewSwitcher>
 
             <tabs:TabHostView x:Name="TabHost"
