@@ -10,19 +10,19 @@
                 <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Sign Up"/>
                 <Frame Margin="30,20,30,0" CornerRadius="11" BorderColor="Gray" HeightRequest="530" WidthRequest="60" Padding="0">
                     <StackLayout>
-                        <local:MyEntry Margin="7,25,20,-53" Placeholder="First name" Text="{Binding FirstName}" />
+                        <local:MyEntry Margin="7,25,20,-53" Placeholder="First name" PlaceholderColor="LightGray" Text="{Binding FirstName}" />
                         <BoxView Margin="1,74,1,10"  HeightRequest="1" Color="Gray"/>
-                        <local:MyEntry Margin="7" Placeholder="Last name" Text="{Binding LastName}" />
+                        <local:MyEntry Margin="7" Placeholder="Last name" PlaceholderColor="LightGray" Text="{Binding LastName}" />
                         <BoxView Margin="1,15,1,10"  HeightRequest="1" Color="Gray"/>
                         <datepicker:ExtendedDatePicker Margin="16,-7,20,-63" Date="{Binding BirthDate}" />
                         <BoxView Margin="1,74,1,10"  HeightRequest="1" Color="Gray"/>
-                        <local:MyEntry Margin="7" Placeholder="Email" Text="{Binding Email}" />
+                        <local:MyEntry Margin="7" Placeholder="Email" PlaceholderColor="LightGray" Text="{Binding Email}" />
                         <BoxView Margin="1,15,1,10"  HeightRequest="1" Color="Gray"/>
-                        <local:MyEntry Margin="7" Placeholder="Phone number" Text="{Binding PhoneNum}" />
+                        <local:MyEntry Margin="7" Placeholder="Phone number" PlaceholderColor="LightGray" Text="{Binding PhoneNum}" />
                         <BoxView Margin="1,15,1,10"  HeightRequest="1" Color="Gray"/>
-                        <local:MyEntry Margin="7,10,20,-53" Placeholder="Password" Text="{Binding Password}" />
+                        <local:MyEntry Margin="7,10,20,-53" Placeholder="Password" PlaceholderColor="LightGray" Text="{Binding Password}" />
                         <BoxView Margin="1,74,1,10"  HeightRequest="1" Color="Gray"/>
-                        <local:MyEntry Margin="7" Placeholder="Confirm password" Text="{Binding ConfirmPassword}" />
+                        <local:MyEntry Margin="7" Placeholder="Confirm password" PlaceholderColor="LightGray" Text="{Binding ConfirmPassword}" />
                     </StackLayout>
                 </Frame>
 
