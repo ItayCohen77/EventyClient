@@ -27,6 +27,7 @@
       BackgroundColor="#FFFFFF">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
                 <RowDefinition Height="60" />
             </Grid.RowDefinitions>
 
@@ -39,11 +40,13 @@
                 <Label Text="Hello world 3"/>
                 <Label Text="Hello world 4"/>
                 <views:ProfileView />
-                
+
             </tabs:ViewSwitcher>
 
+            <BoxView Grid.Row="1" Color="Gray" />
+
             <tabs:TabHostView x:Name="TabHost"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                     TabType="Fixed">
                 <tabs:TabHostView.Tabs>
