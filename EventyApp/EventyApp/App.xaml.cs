@@ -2,11 +2,13 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using EventyApp.Views;
+using EventyApp.Models;
 
 namespace EventyApp
 {
     public partial class App : Application
     {
+        public User CurrentUser;
         public static bool IsDevEnv
         {
             get

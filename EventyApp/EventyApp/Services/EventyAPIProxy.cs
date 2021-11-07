@@ -11,6 +11,7 @@ using System.Text.Encodings.Web;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace EventyApp.Services
 {
@@ -81,22 +82,20 @@ namespace EventyApp.Services
 
         public string GetBasePhotoUri() { return this.basePhotosUri; }
 
-        public async Task<string> HelloWorldAsync()
+        public async Task<User> Login(string email, string password)
         {
             try
             {
-                string url = $"{this.baseUri}/HelloWorld";
-                HttpResponseMessage response = await this.client.GetAsync(url);
+                string json = JsonConvert.SerializeObject((email, password));
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/api/login", content);
+
                 if (response.IsSuccessStatusCode)
                 {
-                    JsonSerializerOptions options = new JsonSerializerOptions
-                    {
-                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
-                        PropertyNameCaseInsensitive = true
-                    };
-                    string content = await response.Content.ReadAsStringAsync();
-                    //string s = JsonSerializer.Deserialize<string>(content, options);
-                    return content;
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    User returnedAccount = JsonConvert.DeserializeObject<User>(jsonContent);
+
+                    return returnedAccount;
                 }
                 else
                 {
@@ -108,6 +107,47 @@ namespace EventyApp.Services
                 Console.WriteLine(e.Message);
                 return null;
             }
-        }     
+        }
+
+        public async Task<User> SignUp(string email, string password, string fName, string lName, DateTime birthdate, string phonenumber)
+        {
+            try
+            {
+                User a = new User()
+                {
+                    Email = email,
+                    Pass = password,
+                    FirstName = fName,
+                    LastName = lName,
+                    BirthDate = birthdate,
+                    PhoneNumber = phonenumber
+                };
+
+                string json = JsonConvert.SerializeObject(a);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/api/signup", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerSettings options = new JsonSerializerSettings
+                    {
+                        PreserveReferencesHandling = PreserveReferencesHandling.All
+                    };
+
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    User returnedAccount = JsonConvert.DeserializeObject<User>(jsonContent, options);
+                    return returnedAccount;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
     }
 }
