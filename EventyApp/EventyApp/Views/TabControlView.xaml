@@ -36,7 +36,7 @@
                        Animate="False"
                        SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
                 <views:ExploreView />
-                <Label Text="Hello world 2"/>
+                <views:WishlistsView />
                 <Label Text="Hello world 3"/>
                 <Label Text="Hello world 4"/>
                 <views:ProfileView />
