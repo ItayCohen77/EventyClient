@@ -88,7 +88,7 @@ namespace EventyApp.Services
             {
                 string json = JsonConvert.SerializeObject((email, password));
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/api/login", content);
+                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/login", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -125,7 +125,7 @@ namespace EventyApp.Services
 
                 string json = JsonConvert.SerializeObject(a);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/api/signup", content);
+                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/signup", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -137,6 +137,29 @@ namespace EventyApp.Services
                     string jsonContent = await response.Content.ReadAsStringAsync();
                     User returnedAccount = JsonConvert.DeserializeObject<User>(jsonContent, options);
                     return returnedAccount;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+        public async Task<bool?> EmailExists(string email)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/email-exists?email={email}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    bool? b = JsonConvert.DeserializeObject<bool?>(content);
+                    return b;
                 }
                 else
                 {

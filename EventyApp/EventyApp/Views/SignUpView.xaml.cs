@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using EventyApp.ViewModel;
 
 namespace EventyApp.Views
 {
@@ -15,6 +16,9 @@ namespace EventyApp.Views
         public SignUpView()
         {
             InitializeComponent();
+            SignUpViewModel signUp = new SignUpViewModel();
+            this.BindingContext = signUp;
+            signUp.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

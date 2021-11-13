@@ -11,358 +11,362 @@ using EventyApp.Models;
 
 namespace EventyApp.ViewModel
 {
-    class SignUpViewModel /*: INotifyPropertyChanged*/
+    class SignUpViewModel : INotifyPropertyChanged
     {
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //protected void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-        //public event Action<Page> Push;
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public event Action<Page> Push;
 
-        //private EventyAPIProxy proxy;
+        private EventyAPIProxy proxy;
 
-        //public SignUpViewModel()
-        //{
-        //    this.SignUpCommand = new Command(() => SignUp());
+        public SignUpViewModel()
+        {
+            this.SignUpCommand = new Command(() => SignUp());
 
-        //    proxy = EventyAPIProxy.CreateProxy();
-        //}
+            proxy = EventyAPIProxy.CreateProxy();
+        }
 
-        //#region Email
-        //private bool showEmailError;
+        #region Email
+        private bool showEmailError;
 
-        //public bool ShowEmailError
-        //{
-        //    get => showEmailError;
-        //    set
-        //    {
-        //        showEmailError = value;
-        //        OnPropertyChanged("ShowEmailError");
-        //    }
-        //}
+        public bool ShowEmailError
+        {
+            get => showEmailError;
+            set
+            {
+                showEmailError = value;
+                OnPropertyChanged("ShowEmailError");
+            }
+        }
 
-        //private string email;
+        private bool showAgeError;
 
-        //public string Email
-        //{
-        //    get => email;
-        //    set
-        //    {
-        //        email = value;
-        //        //if (this.ShowEmailError)
-        //        //    ValidateEmail();
-        //        OnPropertyChanged("Email");
-        //    }
-        //}
+        public bool ShowAgeError
+        {
+            get => showAgeError;
+            set
+            {
+                showAgeError = value;
+                OnPropertyChanged("ShowAgeError");
+            }
+        }
 
-        //private string emailError;
+        private string email;
+        public string Email
+        {
+            get
+            {
+                return this.email;
+            }
+            set
+            {
+                if (this.email != value)
+                {
+                    this.email = value;
+                    OnPropertyChanged(nameof(Email));
+                }
+            }
+        }
 
-        //public string EmailError
-        //{
-        //    get => emailError;
-        //    set
-        //    {
-        //        emailError = value;
-        //        OnPropertyChanged("EmailError");
-        //    }
-        //}
 
-        //private async void ValidateEmail()
-        //{
-        //    bool? exists = await proxy.EmailExists(Email);
-        //    if (exists == true)
-        //    {
-        //        this.ShowEmailError = true;
-        //        this.EmailError = "Email address already exists";
-        //    }
-        //    else if (exists == null)
-        //    {
-        //        ShowGeneralError = true;
-        //        GeneralError = "Unknown error occured. Try again later";
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-        //            var addr = new System.Net.Mail.MailAddress(Email);
-        //            this.ShowEmailError = addr.Address != Email;
-        //        }
-        //        catch
-        //        {
-        //            EmailError = "Invalid email address";
-        //            this.ShowEmailError = true;
-        //        }
-        //    }
+        private string firstname;
+        public string FirstName
+        {
+            get
+            {
+                return this.firstname;
+            }
+            set
+            {
+                if (this.firstname != value)
+                {
+                    this.firstname = value;
+                    OnPropertyChanged(nameof(FirstName));
+                }
+            }
+        }
 
-        //}
-        //#endregion
+        private string lastname;
+        public string LastName
+        {
+            get
+            {
+                return this.lastname;
+            }
+            set
+            {
+                if (this.lastname != value)
+                {
+                    this.lastname = value;
+                    OnPropertyChanged(nameof(LastName));
+                }
+            }
+        }
 
-        //#region Password
-        //private bool showPasswordError;
+        private string password;
+        public string Password
+        {
+            get
+            {
+                return this.password;
+            }
+            set
+            {
+                if (this.password != value)
+                {
+                    this.password = value;
+                    OnPropertyChanged(nameof(Password));
+                }
+            }
+        }
 
-        //public bool ShowPasswordError
-        //{
-        //    get => showPasswordError;
-        //    set
-        //    {
-        //        showPasswordError = value;
-        //        OnPropertyChanged("ShowPasswordError");
-        //    }
-        //}
+        private string comfirmpassword;
+        public string ConfirmPassword
+        {
+            get
+            {
+                return this.comfirmpassword;
+            }
+            set
+            {
+                if (this.comfirmpassword != value)
+                {
+                    this.comfirmpassword = value;
+                    OnPropertyChanged(nameof(ConfirmPassword));
+                }
+            }
+        }
 
-        //private string password;
+        private DateTime birthdate;
+        public DateTime BirthDate
+        {
+            get
+            {
+                return this.birthdate;
+            }
+            set
+            {
+                if (this.birthdate != value)
+                {
+                    this.birthdate = value;
+                    OnPropertyChanged(nameof(BirthDate));
+                }
+            }
+        }
 
-        //public string Password
-        //{
-        //    get => password;
-        //    set
-        //    {
-        //        password = value;
-        //        //if (this.ShowEmailError)
-        //        //    ValidatePassword();
-        //        OnPropertyChanged("Password");
-        //    }
-        //}
+        private string phonenum;
+        public string PhoneNum
+        {
+            get
+            {
+                return this.phonenum;
+            }
+            set
+            {
+                if (this.phonenum != value)
+                {
+                    this.phonenum = value;
+                    OnPropertyChanged(nameof(PhoneNum));
+                }
+            }
+        }
 
-        //private string passwordError;
+        private string emailError;
 
-        //public string PasswordError
-        //{
-        //    get => passwordError;
-        //    set
-        //    {
-        //        passwordError = value;
-        //        OnPropertyChanged("PasswordError");
-        //    }
-        //}
+        public string EmailError
+        {
+            get => emailError;
+            set
+            {
+                emailError = value;
+                OnPropertyChanged("EmailError");
+            }
+        }
 
-        //private void ValidatePassword()
-        //{
-        //    ShowPasswordError = true;
-        //    if (string.IsNullOrEmpty(Password))
-        //        PasswordError = "Password cannot be blank";
-        //    else if (Password.Length < 8)
-        //        PasswordError = "Password must be more than 8 characters";
-        //    else
-        //        ShowPasswordError = false;
+        private string ageError;
 
-        //    ShowConfirmPasswordError = true;
-        //    if (string.IsNullOrEmpty(ConfirmPassword))
-        //        ConfirmPasswordError = "ConfirmPassword cannot be blank";
-        //    else if (ConfirmPassword.Length < 8)
-        //        ConfirmPasswordError = "ConfirmPassword must be more than 8 characters";
-        //    else if (ConfirmPassword != Password)
-        //        ConfirmPasswordError = "Passwords must match";
-        //    else
-        //        ShowConfirmPasswordError = false;
-        //}
-        //#endregion
+        public string AgeError
+        {
+            get => ageError;
+            set
+            {
+                ageError = value;
+                OnPropertyChanged("AgeError");
+            }
+        }
 
-        //#region Confirm Password
-        //private bool showConfirmPasswordError;
+        private async void ValidateEmail()
+        {
+            bool? exists = await proxy.EmailExists(Email);
+            if (exists == true)
+            {
+                this.ShowEmailError = true;
+                this.EmailError = "Email address already exists";
+            }
+            else if (exists == null)
+            {
+                ShowGeneralError = true;
+                GeneralError = "Unknown error occured. Try again later";
+            }
+            else
+            {
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(Email);
+                    this.ShowEmailError = addr.Address != Email;
+                }
+                catch
+                {
+                    EmailError = "Invalid email address";
+                    this.ShowEmailError = true;
+                }
+            }
 
-        //public bool ShowConfirmPasswordError
-        //{
-        //    get => showConfirmPasswordError;
-        //    set
-        //    {
-        //        showConfirmPasswordError = value;
-        //        OnPropertyChanged("ShowConfirmPasswordError");
-        //    }
-        //}
+        }
+        #endregion
 
-        //private string confirmPassword;
+        private void ValidateAge()
+        {
+            int year = BirthDate.Year;
+            int currentYear = DateTime.Now.Year;
 
-        //public string ConfirmPassword
-        //{
-        //    get => confirmPassword;
-        //    set
-        //    {
-        //        confirmPassword = value;
-        //        //if (this.ShowEmailError)
-        //        //    ValidateConfirmPassword();
-        //        OnPropertyChanged("ConfirmPassword");
-        //    }
-        //}
+            if(currentYear - year < 18)
+            {
+                this.AgeError = "Must be 18 or older to sign up...";
+                this.ShowAgeError = true;
+            }
+            else
+            {
+                this.ShowAgeError = false;
+            }
+        }
 
-        //private string confirmPasswordError;
+        #region Password
+        private bool showPasswordError;
 
-        //public string ConfirmPasswordError
-        //{
-        //    get => confirmPasswordError;
-        //    set
-        //    {
-        //        confirmPasswordError = value;
-        //        OnPropertyChanged("ConfirmPasswordError");
-        //    }
-        //}
-        //#endregion
+        public bool ShowPasswordError
+        {
+            get => showPasswordError;
+            set
+            {
+                showPasswordError = value;
+                OnPropertyChanged("ShowPasswordError");
+            }
+        }     
 
-        //#region Username
-        //private bool showUsernameError;
+        private string passwordError;
 
-        //public bool ShowUsernameError
-        //{
-        //    get => showUsernameError;
-        //    set
-        //    {
-        //        showUsernameError = value;
-        //        OnPropertyChanged("ShowUsernameError");
-        //    }
-        //}
+        public string PasswordError
+        {
+            get => passwordError;
+            set
+            {
+                passwordError = value;
+                OnPropertyChanged("PasswordError");
+            }
+        }
 
-        //private string username;
+        private void ValidatePassword()
+        {
+            ShowPasswordError = true;
+            if (string.IsNullOrEmpty(Password))
+                PasswordError = "Password cannot be blank";
+            else if (Password.Length < 8)
+                PasswordError = "Password must be more than 8 characters";
+            else
+                ShowPasswordError = false;
 
-        //public string Username
-        //{
-        //    get => username;
-        //    set
-        //    {
-        //        username = value;
-        //        //if (this.ShowEmailError)
-        //        //    ValidateUsername();
-        //        OnPropertyChanged("Username");
-        //    }
-        //}
+            ShowConfirmPasswordError = true;
+            if (string.IsNullOrEmpty(ConfirmPassword))
+                ConfirmPasswordError = "ConfirmPassword cannot be blank";
+            else if (ConfirmPassword.Length < 8)
+                ConfirmPasswordError = "ConfirmPassword must be more than 8 characters";
+            else if (ConfirmPassword != Password)
+                ConfirmPasswordError = "Passwords must match";
+            else
+                ShowConfirmPasswordError = false;
+        }
+        #endregion
 
-        //private string usernameError;
+        #region Confirm Password
+        private bool showConfirmPasswordError;
 
-        //public string UsernameError
-        //{
-        //    get => usernameError;
-        //    set
-        //    {
-        //        usernameError = value;
-        //        OnPropertyChanged("UsernameError");
-        //    }
-        //}
+        public bool ShowConfirmPasswordError
+        {
+            get => showConfirmPasswordError;
+            set
+            {
+                showConfirmPasswordError = value;
+                OnPropertyChanged("ShowConfirmPasswordError");
+            }
+        }
 
-        //private async void ValidateUsername()
-        //{
-        //    ShowUsernameError = false;
-        //    bool? exists = await proxy.UsernameExists(Username);
+        private string confirmPasswordError;
 
-        //    if (string.IsNullOrEmpty(Username))
-        //    {
-        //        UsernameError = "Username cannot be blank";
-        //        ShowUsernameError = true;
-        //    }
-        //    else if (exists == true)
-        //    {
-        //        UsernameError = "Username is already taken";
-        //        ShowUsernameError = true;
-        //    }
-        //    else if (exists == null)
-        //    {
-        //        GeneralError = "Unknown error occured. Try again later";
-        //        ShowGeneralError = true;
-        //    }
-        //}
-        //#endregion
+        public string ConfirmPasswordError
+        {
+            get => confirmPasswordError;
+            set
+            {
+                confirmPasswordError = value;
+                OnPropertyChanged("ConfirmPasswordError");
+            }
+        }
+        #endregion    
 
-        //#region Age
-        //private bool showAgeError;
+        #region General Error
+        private bool showGeneralError;
 
-        //public bool ShowAgeError
-        //{
-        //    get => showAgeError;
-        //    set
-        //    {
-        //        showAgeError = value;
-        //        OnPropertyChanged("ShowAgeError");
-        //    }
-        //}
+        public bool ShowGeneralError
+        {
+            get => showGeneralError;
+            set
+            {
+                showGeneralError = value;
+                OnPropertyChanged("ShowGeneralError");
+            }
+        }
 
-        //private int? age;
+        private string generalError;
 
-        //public int? Age
-        //{
-        //    get => age;
-        //    set
-        //    {
-        //        age = value;
-        //        //if (this.ShowEmailError)
-        //        //    ValidateAge();
-        //        OnPropertyChanged("Age");
-        //    }
-        //}
+        public string GeneralError
+        {
+            get => generalError;
+            set
+            {
+                generalError = value;
+                OnPropertyChanged("GeneralError");
+            }
+        }
+        #endregion
 
-        //private string ageError;
+        private bool ValidateForm()
+        {
+            ValidateEmail();
+            ValidatePassword();
+            ValidateAge();
 
-        //public string AgeError
-        //{
-        //    get => ageError;
-        //    set
-        //    {
-        //        ageError = value;
-        //        OnPropertyChanged("AgeError");
-        //    }
-        //}
+            return !(ShowEmailError || ShowPasswordError || ShowConfirmPasswordError || ShowAgeError);
+        }
 
-        //private void ValidateAge()
-        //{
-        //    ShowAgeError = true;
-        //    if (Age < 13)
-        //        AgeError = "You must be older than 13 to sign up";
-        //    else if (Age >= 100)
-        //        AgeError = "Please enter a valid age";
-        //    else
-        //        ShowAgeError = false;
-        //}
-        //#endregion
+        public Command GoToLoginCommand { protected set; get; }
+        private void GoToLogin()
+        {
 
-        //#region General Error
-        //private bool showGeneralError;
+        }
 
-        //public bool ShowGeneralError
-        //{
-        //    get => showGeneralError;
-        //    set
-        //    {
-        //        showGeneralError = value;
-        //        OnPropertyChanged("ShowGeneralError");
-        //    }
-        //}
-
-        //private string generalError;
-
-        //public string GeneralError
-        //{
-        //    get => generalError;
-        //    set
-        //    {
-        //        generalError = value;
-        //        OnPropertyChanged("GeneralError");
-        //    }
-        //}
-        //#endregion
-
-        //private bool ValidateForm()
-        //{
-        //    ValidateEmail();
-        //    ValidatePassword();
-        //    ValidateUsername();
-        //    ValidateAge();
-
-        //    return !(ShowEmailError || ShowPasswordError || ShowConfirmPasswordError || ShowUsernameError || ShowAgeError);
-        //}
-
-        //public Command GoToLoginCommand { protected set; get; }
-        //private void GoToLogin()
-        //{
-
-        //}
-
-        //public Command SignUpCommand { protected set; get; }
-        //private async void SignUp()
-        //{
-        //    if (ValidateForm())
-        //    {
-        //        User account = await proxy.SignUp(Email, Password, Username, (int)Age);
-        //        ((App)App.Current).CurrentAccount = account;
-        //        Push?.Invoke(new TabControlView());
-        //    }
-        //}
+        public Command SignUpCommand { protected set; get; }
+        private async void SignUp()
+        {
+            if (ValidateForm())
+            {
+                User user = await proxy.SignUp(Email, Password, FirstName, LastName, BirthDate, PhoneNum);
+                ((App)App.Current).CurrentUser = user;
+                Push?.Invoke(new TabControlView());
+            }
+        }
     }
 }

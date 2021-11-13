@@ -51,7 +51,6 @@ namespace EventyApp.ViewModel
             }
         }
 
-        #region Email
         private bool showEmailError;
 
         public bool ShowEmailError
@@ -103,9 +102,7 @@ namespace EventyApp.ViewModel
             }
 
         }
-        #endregion
 
-        #region Password
         private bool showPasswordError;
 
         public bool ShowPasswordError
@@ -154,9 +151,7 @@ namespace EventyApp.ViewModel
             else
                 ShowPasswordError = false;
         }
-        #endregion
 
-        #region General Error
         private bool showGeneralError;
 
         public bool ShowGeneralError
@@ -180,9 +175,7 @@ namespace EventyApp.ViewModel
                 OnPropertyChanged("GeneralError");
             }
         }
-        #endregion
 
-        #region Remember Me
         private bool rememberMeChecked;
 
         public bool RememberMeChecked
@@ -194,7 +187,6 @@ namespace EventyApp.ViewModel
                 OnPropertyChanged("RememberMeChecked");
             }
         }
-        #endregion
 
         private bool ValidateForm()
         {
