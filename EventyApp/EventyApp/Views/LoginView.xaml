@@ -22,7 +22,7 @@
                         Text="Log in"
                         FontSize="16"
                         BackgroundColor="{StaticResource primary}"
-                        Command="{Binding LogInCommand}"/>
+                        Command="{Binding LoginCommand}"/>
 
             <Grid Margin="0, 11, 0, 0">
                 <Grid.RowDefinitions>

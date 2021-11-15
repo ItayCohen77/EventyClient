@@ -11,7 +11,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="BottomTabStyle" TargetType="tabs:BottomTabItem">
-                <Setter Property="SelectedTabColor" Value="Black" />
+                <Setter Property="SelectedTabColor" Value="#FF5353" />
                 <Setter Property="UnselectedLabelColor" Value="Gray" />
                 <Setter Property="UnselectedIconColor" Value="Gray" />
                 <Setter Property="FontFamily" Value="Roboto" />

@@ -24,8 +24,6 @@ namespace EventyApp.ViewModel
             SelectedViewModelIndex = 0;
         }
 
-
-        #region Selected Tab Index
         private int selectedViewModelIndex;
         public int SelectedViewModelIndex
         {
@@ -36,7 +34,6 @@ namespace EventyApp.ViewModel
                 OnPropertyChanged("SelectedViewModelIndex");
             }
         }
-        #endregion
 
         public event Action<Page> Push;
     }
