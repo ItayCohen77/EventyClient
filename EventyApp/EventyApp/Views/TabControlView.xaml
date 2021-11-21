@@ -37,8 +37,8 @@
                        SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
                 <views:ExploreView />
                 <views:WishlistsView />
-                <Label Text="Hello world 3"/>
-                <Label Text="Hello world 4"/>
+                <views:EventsView />
+                <views:InboxView />
                 <views:ProfileView />
 
             </tabs:ViewSwitcher>
@@ -51,7 +51,7 @@
                     TabType="Fixed">
                 <tabs:TabHostView.Tabs>
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                            IconImageSource="Search.png"
+                            IconImageSource="outline_search_black_24dp.png"
                                         IsTextVisible="False"
                             Label="Hello" />
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"

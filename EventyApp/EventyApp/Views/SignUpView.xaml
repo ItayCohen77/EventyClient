@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="15" BackgroundColor="White">
-                <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Sign Up"/>
+                <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Sign up"/>
                 <Frame Margin="30,20,30,0" CornerRadius="11" BorderColor="Gray" HeightRequest="530" WidthRequest="60" Padding="0">
                     <StackLayout>
                         <local:MyEntry Margin="7,25,20,-53" Placeholder="First name" PlaceholderColor="LightGray" Text="{Binding FirstName}" />
