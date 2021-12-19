@@ -8,7 +8,7 @@
             <Style x:Key="labelStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start"/>
                 <Setter Property="FontFamily" Value="Roboto"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="Black" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
