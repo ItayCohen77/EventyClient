@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventyApp.Views.HostEstateView.TypeOfPlaceHEView">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="White">
+                <Frame BackgroundColor="{StaticResource primary}"/>
+                <StackLayout Spacing="-5">
+                    <Frame Margin="0,370,0,5" HeightRequest="300" BackgroundColor="White" CornerRadius="15">
+                        <StackLayout>
+                            
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

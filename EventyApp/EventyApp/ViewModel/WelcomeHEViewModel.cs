@@ -6,10 +6,12 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using EventyApp.Views;
+using EventyApp.Services;
+using EventyApp.Models;
 
 namespace EventyApp.ViewModel
 {
-    class ProfileViewModel : INotifyPropertyChanged
+    class WelcomeHEViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -18,20 +20,11 @@ namespace EventyApp.ViewModel
         }
         public event Action<Page> Push;
 
-        public ICommand LogInCommand => new Command(LogIn);
-        private void LogIn()
+        private EventyAPIProxy proxy;
+
+        public WelcomeHEViewModel()
         {
-            Push?.Invoke(new LoginView());
-        }
-        public ICommand SignUpCommand => new Command(SignUp);
-        private void SignUp()
-        {
-            Push?.Invoke(new SignUpView());
-        }
-        public ICommand HostCommand => new Command(Host);
-        private void Host()
-        {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.WelcomeHEView());
+
         }
     }
 }
