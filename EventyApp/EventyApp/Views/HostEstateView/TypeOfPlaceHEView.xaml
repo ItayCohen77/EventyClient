@@ -13,34 +13,62 @@
                         <GradientStop Color="#FFAF7B" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-                
+                <Label Margin="0,70" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="What kind of place will you host?"/>
             </Frame>
-            <!--<StackLayout Spacing="-5">
-                <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="White" CornerRadius="15">
+            <StackLayout Spacing="-5">
+                <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                     <StackLayout>
-                      <CollectionView>
-                            <CollectionView.ItemTemplate>
-                                <Frame Margin="7" BackgroundColor="White" CornerRadius="15" HeightRequest="25" BorderColor="LightGray">
-                                    <StackLayout>
-                                        <Image Margin="0,-20" Source="apartment.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
-                                        <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Apartment" FontSize="17" FontFamily="italic">
-                                                        <Span.GestureRecognizers>
-                                                            <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
-                                                        </Span.GestureRecognizers>
-                                                    </Span>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-                                </Frame>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
+                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="lightgray">
+                            <StackLayout>
+                                <Image Margin="0,-20" Source="apartment.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
+                                <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Apartment" FontSize="17" FontFamily="italic">
+                                                <Span.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding ApartmentCommand}"/>
+                                                </Span.GestureRecognizers>
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="lightgray">
+                            <StackLayout>
+                                <Image Margin="0,-20" Source="Privatehouse.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
+                                <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Private house" FontSize="17" FontFamily="italic">
+                                                <Span.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding PrivateHouseCommand}"/>
+                                                </Span.GestureRecognizers>
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="lightgray">
+                            <StackLayout>
+                                <Image Margin="0,-20" Source="backyard.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
+                                <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="House backyard" FontSize="17" FontFamily="italic">
+                                                <Span.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding HouseBackyardCommand}"/>
+                                                </Span.GestureRecognizers>
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
                 </Frame>
-            </StackLayout>-->
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
