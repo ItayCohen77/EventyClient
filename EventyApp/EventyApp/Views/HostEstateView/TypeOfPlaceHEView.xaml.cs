@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using EventyApp.ViewModel;
 
 namespace EventyApp.Views.HostEstateView
 {
@@ -15,6 +16,9 @@ namespace EventyApp.Views.HostEstateView
         public TypeOfPlaceHEView()
         {
             InitializeComponent();
+            TypeOfPlaceHEViewModel TypeOfPlaceHE = new TypeOfPlaceHEViewModel();
+            this.BindingContext = TypeOfPlaceHE;
+            TypeOfPlaceHE.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

@@ -11,7 +11,7 @@ using EventyApp.Models;
 
 namespace EventyApp.ViewModel
 {
-    class WelcomeHEViewModel
+    class TypeOfPlaceHEViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -20,15 +20,9 @@ namespace EventyApp.ViewModel
         }
         public event Action<Page> Push;
 
-        private EventyAPIProxy proxy;
+        private EventyAPIProxy proxy;      
 
-        public ICommand LetsGoCommand => new Command(LetsGo);
-        private void LetsGo()
-        {
-            Push?.Invoke(new Views.HostEstateView.TypeOfPlaceHEView());
-        }
-
-        public WelcomeHEViewModel()
+        public TypeOfPlaceHEViewModel()
         {
 
         }

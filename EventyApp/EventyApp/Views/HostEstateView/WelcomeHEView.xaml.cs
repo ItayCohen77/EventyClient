@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using EventyApp.ViewModel;
+
 namespace EventyApp.Views.HostEstateView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

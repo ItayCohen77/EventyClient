@@ -1,19 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EventyApp.Views.HostEstateView.TypeOfPlaceHEView">
+             x:Class="EventyApp.Views.HostEstateView.TypeOfPlaceHEView"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <ScrollView>
-            <Grid BackgroundColor="White">
-                <Frame BackgroundColor="{StaticResource primary}"/>
-                <StackLayout Spacing="-5">
-                    <Frame Margin="0,370,0,5" HeightRequest="300" BackgroundColor="White" CornerRadius="15">
-                        <StackLayout>
-                            
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </Grid>
-        </ScrollView>
+        <Grid BackgroundColor="White">
+            <Frame HeightRequest="120"
+                       WidthRequest="120">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#FF5353" Offset="0.1"/>
+                        <GradientStop Color="#FFAF7B" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                
+            </Frame>
+            <!--<StackLayout Spacing="-5">
+                <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="White" CornerRadius="15">
+                    <StackLayout>
+                      <CollectionView>
+                            <CollectionView.ItemTemplate>
+                                <Frame Margin="7" BackgroundColor="White" CornerRadius="15" HeightRequest="25" BorderColor="LightGray">
+                                    <StackLayout>
+                                        <Image Margin="0,-20" Source="apartment.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
+                                        <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Apartment" FontSize="17" FontFamily="italic">
+                                                        <Span.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                                                        </Span.GestureRecognizers>
+                                                    </Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>-->
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
