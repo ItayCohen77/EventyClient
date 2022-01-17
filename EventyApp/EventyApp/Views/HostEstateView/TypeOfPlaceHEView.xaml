@@ -18,8 +18,11 @@
             <StackLayout Spacing="-5">
                 <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                     <StackLayout>
-                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="lightgray">
+                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorApartment}">
                             <StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ApartmentCommand}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image Margin="0,-20" Source="apartment.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
                                 <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
                                     <Label.FormattedText>
@@ -34,7 +37,7 @@
                                 </Label>
                             </StackLayout>
                         </Frame>
-                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="lightgray">
+                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorPH}">
                             <StackLayout>
                                 <Image Margin="0,-20" Source="Privatehouse.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
                                 <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
@@ -50,7 +53,7 @@
                                 </Label>
                             </StackLayout>
                         </Frame>
-                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="lightgray">
+                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorHB}">
                             <StackLayout>
                                 <Image Margin="0,-20" Source="backyard.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
                                 <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
