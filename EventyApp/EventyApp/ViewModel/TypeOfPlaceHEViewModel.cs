@@ -11,7 +11,7 @@ using EventyApp.Models;
 
 namespace EventyApp.ViewModel
 {
-    class TypeOfPlaceHEViewModel
+    class TypeOfPlaceHEViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -23,8 +23,8 @@ namespace EventyApp.ViewModel
         private EventyAPIProxy proxy;
 
  
-        private Color changeBorderColorApartment;
-        public Color ChangeBorderColorApartment
+        private string changeBorderColorApartment;
+        public string ChangeBorderColorApartment
         {
             get
             {
@@ -40,8 +40,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private Color changeBorderColorPH;
-        public Color ChangeBorderColorPH
+        private string changeBorderColorPH;
+        public string ChangeBorderColorPH
         {
             get
             {
@@ -57,8 +57,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private Color changeBorderColorHB;
-        public Color ChangeBorderColorHB
+        private string changeBorderColorHB;
+        public string ChangeBorderColorHB
         {
             get
             {
@@ -74,17 +74,80 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private bool pressed;
+        public bool Pressed
+        {
+            get
+            {
+                return this.pressed;
+            }
+            set
+            {
+                if (this.pressed != value)
+                {
+                    this.pressed = value;
+                    OnPropertyChanged(nameof(Pressed));
+                }
+            }
+        }
+
         public ICommand ApartmentCommand => new Command(Apartment);
         private void Apartment()
         {
-            this.ChangeBorderColorApartment = new Color(255, 83, 83);
+            if(!Pressed)
+            {
+                this.ChangeBorderColorApartment = "#FF5353";
+                this.Pressed = true;
+            }
+            else
+            {
+                this.ChangeBorderColorApartment = "#FF5353";
+                this.ChangeBorderColorPH = "#B7B7B7";
+                this.ChangeBorderColorHB = "#B7B7B7";
+                this.Pressed = true;
+            }
+        }
+
+        public ICommand PrivateHouseCommand => new Command(PrivateHouse);
+        private void PrivateHouse()
+        {
+            if (!Pressed)
+            {
+                this.ChangeBorderColorPH = "#FF5353";
+                this.Pressed = true;
+            }
+            else
+            {
+                this.ChangeBorderColorPH = "#FF5353";
+                this.ChangeBorderColorApartment = "#B7B7B7";
+                this.ChangeBorderColorHB = "#B7B7B7";
+                this.Pressed = true;
+            }
+        }
+
+        public ICommand HouseBackyardCommand => new Command(HouseBackyard);
+        private void HouseBackyard()
+        {
+            if (!Pressed)
+            {
+                this.ChangeBorderColorHB = "#FF5353";
+                this.Pressed = true;
+            }
+            else
+            {
+                this.ChangeBorderColorHB = "#FF5353";
+                this.ChangeBorderColorApartment = "#B7B7B7";
+                this.ChangeBorderColorPH = "#B7B7B7";
+                this.Pressed = true;
+            }
         }
 
         public TypeOfPlaceHEViewModel()
         {
-            this.ChangeBorderColorApartment = new Color(192, 192, 192);
-            this.ChangeBorderColorPH = new Color(192, 192, 192);
-            this.ChangeBorderColorHB = new Color(192, 192, 192);
+            this.ChangeBorderColorApartment = "#B7B7B7";
+            this.ChangeBorderColorPH = "#B7B7B7";
+            this.ChangeBorderColorHB = "#B7B7B7";
+            this.Pressed = false;
         }
     }
 }

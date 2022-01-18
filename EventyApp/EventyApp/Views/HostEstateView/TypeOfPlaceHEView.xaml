@@ -39,6 +39,9 @@
                         </Frame>
                         <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorPH}">
                             <StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PrivateHouseCommand}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image Margin="0,-20" Source="Privatehouse.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
                                 <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
                                     <Label.FormattedText>
@@ -55,6 +58,9 @@
                         </Frame>
                         <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorHB}">
                             <StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding HouseBackyardCommand}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image Margin="0,-20" Source="backyard.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
                                 <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
                                     <Label.FormattedText>
