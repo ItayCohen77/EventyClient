@@ -40,6 +40,23 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private string buttoncolor;
+        public string ButtonColor
+        {
+            get
+            {
+                return this.buttoncolor;
+            }
+            set
+            {
+                if (this.buttoncolor != value)
+                {
+                    this.buttoncolor = value;
+                    OnPropertyChanged(nameof(ButtonColor));
+                }
+            }
+        }
+
         private string changeBorderColorPH;
         public string ChangeBorderColorPH
         {
@@ -91,19 +108,19 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string isvisible;
-        public string IsVisible
+        private string isenabled;
+        public string IsEnabled
         {
             get
             {
-                return this.isvisible;
+                return this.isenabled;
             }
             set
             {
-                if (this.isvisible != value)
+                if (this.isenabled != value)
                 {
-                    this.isvisible = value;
-                    OnPropertyChanged(nameof(IsVisible));
+                    this.isenabled = value;
+                    OnPropertyChanged(nameof(IsEnabled));
                 }
             }
         }
@@ -122,7 +139,8 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorPH = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
                 this.Pressed = false;
-                this.IsVisible = "False";
+                this.IsEnabled = "False";
+                this.ButtonColor = "#B7B7B7";
             }
             else
             {
@@ -134,7 +152,8 @@ namespace EventyApp.ViewModel
 
             if(Pressed)
             {
-                this.IsVisible = "True";
+                this.IsEnabled = "True";
+                this.ButtonColor = "#FF5353";
             }
         }
 
@@ -152,7 +171,8 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorPH = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
                 this.Pressed = false;
-                this.IsVisible = "False";
+                this.IsEnabled = "False";
+                this.ButtonColor = "#B7B7B7";
             }
             else
             {
@@ -164,7 +184,8 @@ namespace EventyApp.ViewModel
 
             if (Pressed)
             {
-                this.IsVisible = "True";
+                this.IsEnabled = "True";
+                this.ButtonColor = "#FF5353";
             }
         }
 
@@ -182,7 +203,8 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorPH = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
                 this.Pressed = false;
-                this.IsVisible = "False";
+                this.IsEnabled = "False";
+                this.ButtonColor = "#B7B7B7";
             }
             else
             {
@@ -194,7 +216,8 @@ namespace EventyApp.ViewModel
 
             if (Pressed)
             {
-                this.IsVisible = "True";
+                this.IsEnabled = "True";
+                this.ButtonColor = "#FF5353";
             }
         }
 
@@ -203,8 +226,9 @@ namespace EventyApp.ViewModel
             this.ChangeBorderColorApartment = "#B7B7B7";
             this.ChangeBorderColorPH = "#B7B7B7";
             this.ChangeBorderColorHB = "#B7B7B7";
+            this.ButtonColor = "#B7B7B7";
             this.Pressed = false;
-            this.IsVisible = "False";
+            this.IsEnabled = "False";
         }
     }
 }
