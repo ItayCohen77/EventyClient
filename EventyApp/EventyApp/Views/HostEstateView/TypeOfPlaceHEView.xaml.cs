@@ -18,7 +18,7 @@ namespace EventyApp.Views.HostEstateView
             TypeOfPlaceHEViewModel TypeOfPlaceHE = new TypeOfPlaceHEViewModel();
             this.BindingContext = TypeOfPlaceHE;
             TypeOfPlaceHE.Push += (p) => Navigation.PushAsync(p);
-            InitializeComponent();        
+            InitializeComponent();    
         }
     }
 }

@@ -221,6 +221,11 @@ namespace EventyApp.ViewModel
             }
         }
 
+        public ICommand NextCommand => new Command(Next);
+        private void Next()
+        {
+            Push?.Invoke(new EventyApp.Views.HostEstateView.DescribeYourPlaceHEView());
+        }
         public TypeOfPlaceHEViewModel()
         {
             this.ChangeBorderColorApartment = "#B7B7B7";
