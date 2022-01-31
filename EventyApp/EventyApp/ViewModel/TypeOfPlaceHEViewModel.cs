@@ -91,6 +91,23 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private string changeBorderColorH;
+        public string ChangeBorderColorH
+        {
+            get
+            {
+                return this.changeBorderColorH;
+            }
+            set
+            {
+                if (this.changeBorderColorH != value)
+                {
+                    this.changeBorderColorH = value;
+                    OnPropertyChanged(nameof(ChangeBorderColorH));
+                }
+            }
+        }
+
         private bool pressed;
         public bool Pressed
         {
@@ -138,6 +155,7 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorApartment = "#B7B7B7";
                 this.ChangeBorderColorPH = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
+                this.ChangeBorderColorH = "#B7B7B7";
                 this.Pressed = false;
                 this.IsEnabled = "False";
                 this.ButtonColor = "#B7B7B7";
@@ -147,6 +165,7 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorApartment = "#FF5353";
                 this.ChangeBorderColorPH = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
+                this.ChangeBorderColorH = "#B7B7B7";
                 this.Pressed = true;
             }
 
@@ -170,6 +189,7 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorApartment = "#B7B7B7";
                 this.ChangeBorderColorPH = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
+                this.ChangeBorderColorH = "#B7B7B7";
                 this.Pressed = false;
                 this.IsEnabled = "False";
                 this.ButtonColor = "#B7B7B7";
@@ -179,6 +199,7 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorPH = "#FF5353";
                 this.ChangeBorderColorApartment = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
+                this.ChangeBorderColorH = "#B7B7B7";
                 this.Pressed = true;
             }
 
@@ -202,6 +223,7 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorApartment = "#B7B7B7";
                 this.ChangeBorderColorPH = "#B7B7B7";
                 this.ChangeBorderColorHB = "#B7B7B7";
+                this.ChangeBorderColorH = "#B7B7B7";
                 this.Pressed = false;
                 this.IsEnabled = "False";
                 this.ButtonColor = "#B7B7B7";
@@ -211,6 +233,41 @@ namespace EventyApp.ViewModel
                 this.ChangeBorderColorHB = "#FF5353";
                 this.ChangeBorderColorApartment = "#B7B7B7";
                 this.ChangeBorderColorPH = "#B7B7B7";
+                this.ChangeBorderColorH = "#B7B7B7";
+                this.Pressed = true;
+            }
+
+            if (Pressed)
+            {
+                this.IsEnabled = "True";
+                this.ButtonColor = "#FF5353";
+            }
+        }
+
+        public ICommand HallCommand => new Command(Hall);
+        private void Hall()
+        {
+            if (!Pressed)
+            {
+                this.ChangeBorderColorH = "#FF5353";
+                this.Pressed = true;
+            }
+            else if (this.changeBorderColorH == "#FF5353")
+            {
+                this.ChangeBorderColorApartment = "#B7B7B7";
+                this.ChangeBorderColorPH = "#B7B7B7";
+                this.ChangeBorderColorHB = "#B7B7B7";
+                this.ChangeBorderColorH = "#B7B7B7";
+                this.Pressed = false;
+                this.IsEnabled = "False";
+                this.ButtonColor = "#B7B7B7";
+            }
+            else
+            {
+                this.ChangeBorderColorH = "#FF5353";
+                this.ChangeBorderColorApartment = "#B7B7B7";
+                this.ChangeBorderColorPH = "#B7B7B7";
+                this.ChangeBorderColorHB = "#B7B7B7";
                 this.Pressed = true;
             }
 
@@ -232,6 +289,7 @@ namespace EventyApp.ViewModel
             this.ChangeBorderColorPH = "#B7B7B7";
             this.ChangeBorderColorHB = "#B7B7B7";
             this.ButtonColor = "#B7B7B7";
+            this.ChangeBorderColorH = "#B7B7B7";
             this.Pressed = false;
             this.IsEnabled = "False";
         }

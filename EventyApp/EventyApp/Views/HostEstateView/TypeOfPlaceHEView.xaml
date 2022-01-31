@@ -76,7 +76,27 @@
                             </StackLayout>
                         </Frame>
 
-                        <BoxView Margin="-20, 130, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorH}">
+                            <StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding HallCommand}"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Margin="0,-20" Source="hall.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
+                                <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Hall" FontSize="17" FontFamily="italic">
+                                                <Span.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding HallCommand}"/>
+                                                </Span.GestureRecognizers>
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <BoxView Margin="-20, 40, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
 
                         <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Next" Command="{Binding NextCommand}" BackgroundColor="{Binding ButtonColor}" TextColor="White" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" FontSize="16"/>
                     </StackLayout>
