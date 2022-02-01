@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EventyApp;assembly=EventyApp"
              x:Class="EventyApp.Views.HostEstateView.DescribeYourPlaceHEView"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
@@ -13,72 +14,14 @@
                         <GradientStop Color="#FFAF7B" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-                <Label Margin="0,70" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Which of these best describes your place?"/>
+                <Label Margin="0,70" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Describe your place and select features"/>
             </Frame>
             <StackLayout Spacing="-5">
                 <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                     <StackLayout>
-                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorApartment}">
-                            <StackLayout>
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ApartmentCommand}"/>
-                                </StackLayout.GestureRecognizers>
-                                <Image Margin="0,-20" Source="apartment.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
-                                <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Apartment" FontSize="17" FontFamily="italic">
-                                                <Span.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding ApartmentCommand}"/>
-                                                </Span.GestureRecognizers>
-                                            </Span>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                            </StackLayout>
+                        <Frame BorderColor="LightGray" CornerRadius="7" HeightRequest="200">
+                            <Editor Text="{Binding Description}" AutoSize="TextChanges" Placeholder="Describe your place"/>
                         </Frame>
-                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorPH}">
-                            <StackLayout>
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding PrivateHouseCommand}"/>
-                                </StackLayout.GestureRecognizers>
-                                <Image Margin="0,-20" Source="Privatehouse.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
-                                <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Private house" FontSize="17" FontFamily="italic">
-                                                <Span.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding PrivateHouseCommand}"/>
-                                                </Span.GestureRecognizers>
-                                            </Span>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="25" BorderColor="{Binding ChangeBorderColorHB}">
-                            <StackLayout>
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding HouseBackyardCommand}"/>
-                                </StackLayout.GestureRecognizers>
-                                <Image Margin="0,-20" Source="backyard.jpg" HeightRequest="70" WidthRequest="60" HorizontalOptions="End"/>
-                                <Label HorizontalOptions="Start" Margin="15,-35,0,0" Style="{StaticResource labelStyle}" FontSize="16" >
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="House backyard" FontSize="17" FontFamily="italic">
-                                                <Span.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding HouseBackyardCommand}"/>
-                                                </Span.GestureRecognizers>
-                                            </Span>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                            </StackLayout>
-                        </Frame>
-
-                        <BoxView Margin="-20, 130, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
-
-                        <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Next" Command="{Binding NextCommand}" BackgroundColor="{Binding ButtonColor}" TextColor="White" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" FontSize="16"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
