@@ -92,17 +92,17 @@ namespace EventyApp.ViewModel
 
         public DescribeYourPlaceHEViewModel()
         {
-            this.ApartmentF.Add("Tv");
-            this.ApartmentF.Add("Air conditioner");
-            this.ApartmentF.Add("Coffee Machine");
-            this.ApartmentF.Add("Water heater");
-            this.ApartmentF.Add("Speaker");
+            //this.ApartmentF.Add("Tv");
+            //this.ApartmentF.Add("Air conditioner");
+            //this.ApartmentF.Add("Coffee Machine");
+            //this.ApartmentF.Add("Water heater");
+            //this.ApartmentF.Add("Speaker");
 
-            this.YardF.Add("Pool");
-            this.YardF.Add("BBQ");
-            this.YardF.Add("Table");
-            this.YardF.Add("Chairs");
-            this.YardF.Add("Table");
+            //this.YardF.Add("Pool");
+            //this.YardF.Add("BBQ");
+            //this.YardF.Add("Table");
+            //this.YardF.Add("Chairs");
+            //this.YardF.Add("Table");
         }
     }
 }
