@@ -22,7 +22,25 @@ namespace EventyApp.ViewModel
 
         private EventyAPIProxy proxy;
 
- 
+
+        private string typePlace;
+        public string TypePlace
+        {
+            get
+            {
+                return this.typePlace;
+            }
+            set
+            {
+                if (this.typePlace != value)
+                {
+                    this.typePlace = value;
+                    OnPropertyChanged(nameof(TypePlace));
+                }
+            }
+        }
+
+
         private string changeBorderColorApartment;
         public string ChangeBorderColorApartment
         {
@@ -281,7 +299,24 @@ namespace EventyApp.ViewModel
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.DescribeYourPlaceHEView());
+            if(this.ChangeBorderColorApartment == "#FF5353")
+            {
+                this.TypePlace = "Apartment";
+            }
+            else if(this.ChangeBorderColorHB == "#FF5353")
+            {
+                this.TypePlace = "HB";
+            }
+            else if(this.changeBorderColorH == "#FF5353")
+            {
+                this.TypePlace = "H";
+            }
+            else
+            {
+                this.TypePlace = "PH";
+            }
+
+            Push?.Invoke(new EventyApp.Views.HostEstateView.DescribeYourPlaceHEView(this.TypePlace));
         }
         public TypeOfPlaceHEViewModel()
         {

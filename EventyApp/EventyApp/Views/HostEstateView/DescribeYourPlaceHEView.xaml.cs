@@ -13,9 +13,9 @@ namespace EventyApp.Views.HostEstateView
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DescribeYourPlaceHEView : ContentPage
     {
-        public DescribeYourPlaceHEView()
+        public DescribeYourPlaceHEView(string typePlace)
         {
-            DescribeYourPlaceHEViewModel describe = new DescribeYourPlaceHEViewModel();
+            DescribeYourPlaceHEViewModel describe = new DescribeYourPlaceHEViewModel(typePlace);
             this.BindingContext = describe;
             describe.Push += (p) => Navigation.PushAsync(p);
             InitializeComponent();

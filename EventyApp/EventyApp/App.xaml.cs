@@ -16,6 +16,23 @@ namespace EventyApp
                 return true; //change this before release!
             }
         }
+
+        private string typePlace;
+        public string TypePlace
+        {
+            get
+            {
+                return this.typePlace;
+            }
+            set
+            {
+                if (this.typePlace != value)
+                {
+                    this.typePlace = value;
+                    OnPropertyChanged(nameof(TypePlace));
+                }
+            }
+        }
         public App()
         {
             InitializeComponent();
