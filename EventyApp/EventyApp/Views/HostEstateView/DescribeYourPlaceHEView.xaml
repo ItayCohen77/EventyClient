@@ -26,19 +26,21 @@
                         <StackLayout Orientation="Horizontal">
                             <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="StartAndExpand" Text="{Binding OptionOne}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
-                            <CheckBox HorizontalOptions="End" Color="#FF5353" VerticalOptions="Center" />
-                            <Label HorizontalOptions="End" Text="{Binding OptionTwo}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
+                            <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
+                            <Label HorizontalOptions="Start" Text="{Binding OptionTwo}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="StartAndExpand" Text="{Binding OptionThree}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
-                            <CheckBox HorizontalOptions="End" Color="#FF5353" VerticalOptions="Center" />
-                            <Label HorizontalOptions="End" Text="{Binding OptionFour}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
+                            <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
+                            <Label HorizontalOptions="Start" Text="{Binding OptionFour}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
-                            <Label Text="{Binding OptionFivr}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
+                            <Label Text="{Binding OptionFive}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
                         </StackLayout>
+                        <BoxView Margin="-20, 40, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                        <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Next" Command="{Binding NextCommand}" BackgroundColor="#FF5353" TextColor="White" FontAttributes="Bold" FontSize="16"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -196,7 +196,7 @@ namespace EventyApp.ViewModel
             this.TypePlace = typePlace;
 
             this.ApartmentF = new List<string>();
-            this.ApartmentF.Add("Tv");
+            this.ApartmentF.Add("TV");
             this.ApartmentF.Add("Air conditioner");
             this.ApartmentF.Add("Coffee Machine");
             this.ApartmentF.Add("Water heater");
