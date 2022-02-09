@@ -6,7 +6,10 @@
              xmlns:tabs="http://sharpnado.com"
              xmlns:views="clr-namespace:EventyApp.Views"
              x:Class="EventyApp.Views.TabControlView"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransf="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -46,31 +49,36 @@
             <BoxView Grid.Row="1" Color="Gray" />
 
             <tabs:TabHostView x:Name="TabHost"
-                    Grid.Row="2"
+                    Grid.Row="2" 
                     SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                     TabType="Fixed">
                 <tabs:TabHostView.Tabs>
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                            IconImageSource="outline_search_black_24dp.png"
-                                        IsTextVisible="False"
+                            IconImageSource="Search.png"
+                            IconSize="25"          
+                            IsTextVisible="False"
                             Label="Hello" />
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
                             IconImageSource="Heart2.png"
-                                        IsTextVisible="False"
+                            IconSize="100"
+                            IsTextVisible="False"
                             Label="World" />
 
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                            IconImageSource="grid_view_96.png"
-                                        IsTextVisible="False"
+                            IconImageSource="EventyLogo.png"
+                            IconSize="100"
+                            IsTextVisible="False"
                             Label="Hello" />
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
                             IconImageSource="Inbox.png"
-                                        IsTextVisible="False"
+                            IconSize="100"
+                            IsTextVisible="False"
                             Label="World" />
 
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
                             IconImageSource="Profile.png"
-                                        IsTextVisible="False"
+                            IconSize="100"
+                            IsTextVisible="False"
                             Label="World" />
                 </tabs:TabHostView.Tabs>
             </tabs:TabHostView>
