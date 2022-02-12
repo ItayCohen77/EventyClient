@@ -191,6 +191,12 @@ namespace EventyApp.ViewModel
             }
         }
 
+        public ICommand NextCommand => new Command(Next);
+        private void Next()
+        {
+            Push?.Invoke(new EventyApp.Views.HostEstateView.UploadPicsHEView());
+        }
+
         public DescribeYourPlaceHEViewModel(string typePlace)
         {
             this.TypePlace = typePlace;

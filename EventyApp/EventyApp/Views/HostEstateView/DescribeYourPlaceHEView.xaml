@@ -16,6 +16,7 @@
                 </Frame.Background>
                 <Label Margin="0,70" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Describe your place and select features"/>
             </Frame>
+            
             <StackLayout Spacing="-5">
                 <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                     <StackLayout>
