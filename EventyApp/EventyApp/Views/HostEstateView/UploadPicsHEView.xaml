@@ -32,24 +32,41 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                             </Grid>
-                        
-                        <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
-                            <StackLayout>
 
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
-                            <StackLayout>
+                            <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
+                                <StackLayout>
 
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Column="2" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
-                            <StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
+                                <StackLayout>
 
-                            </StackLayout>
-                        </Frame>
-                            
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Column="2" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
+                                <StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
+                                <StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Column="0" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
+                                <StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Column="2" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
+                                <StackLayout>
+
+                                </StackLayout>
+                            </Frame>
                         </Grid>
+
+                        <BoxView Margin="-20, 93, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                        <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Next" Command="{Binding NextCommand}" BackgroundColor="#FF5353" TextColor="White" FontAttributes="Bold" FontSize="16"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
