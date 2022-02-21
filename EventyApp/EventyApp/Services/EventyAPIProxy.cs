@@ -109,6 +109,28 @@ namespace EventyApp.Services
             }
         }
 
+        public async Task<bool> UploadImage(Models.FileInfo fileInfo)
+        {
+            try
+            {
+                var multipartFormDataContent = new MultipartFormDataContent();
+                var fileContent = new ByteArrayContent(File.ReadAllBytes(fileInfo.Name));
+                multipartFormDataContent.Add(fileContent, "file", "kuku.jpg");
+                HttpResponseMessage response = await client.PostAsync($"{this.baseUri}/UploadImage", multipartFormDataContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+
         public async Task<User> SignUp(string email, string password, string fName, string lName, DateTime birthdate, string phonenumber)
         {
             try
