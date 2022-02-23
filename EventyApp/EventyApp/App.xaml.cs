@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using EventyApp.Views;
 using EventyApp.Models;
-
+using Syncfusion;
 namespace EventyApp
 {
     public partial class App : Application
@@ -35,6 +35,7 @@ namespace EventyApp
         }
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTg2MTI3QDMxMzkyZTM0MmUzMGRJZkRxMkRTLy9kbERGSkppWU8wRlNWSUw5SnFOWjF3WTRHbGVsOVc2ams9");
             InitializeComponent();
 
             MainPage = new NavigationPage(new TabControlView());

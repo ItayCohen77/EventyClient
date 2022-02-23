@@ -35,39 +35,92 @@
 
                             <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
-                                    <Button 
-                                    HeightRequest="50"
-                                            WidthRequest="50"
-                                    CornerRadius="5"
-                                    TextColor="Black" 
-                                    Text="Let's go!"
-                                    FontSize="16"
-                                    Command="{Binding AddImageCommand}"/>
+                                    <Label VerticalOptions="CenterAndExpand" Style="{StaticResource labelStyle}" FontSize="15">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Upload image one">
+                                                    <Span.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                    </Span.GestureRecognizers>
+                                                </Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                             <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
-                                <StackLayout BackgroundColor="Red">
-                                    <ImageButton/>
+                                <StackLayout>
+                                    <Label VerticalOptions="CenterAndExpand" Style="{StaticResource labelStyle}" FontSize="15">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Upload image two">
+                                                    <Span.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                    </Span.GestureRecognizers>
+                                                </Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                             <Frame Grid.Column="2" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
-
+                                    <Label VerticalOptions="CenterAndExpand" Style="{StaticResource labelStyle}" FontSize="15">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Upload image three">
+                                                    <Span.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                    </Span.GestureRecognizers>
+                                                </Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                             <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
-
+                                    <Label VerticalOptions="CenterAndExpand" Style="{StaticResource labelStyle}" FontSize="15">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Upload image four">
+                                                    <Span.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                    </Span.GestureRecognizers>
+                                                </Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                             <Frame Grid.Column="0" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
-
+                                    <Label VerticalOptions="CenterAndExpand" Style="{StaticResource labelStyle}" FontSize="15">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Upload image five">
+                                                    <Span.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                    </Span.GestureRecognizers>
+                                                </Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                             <Frame Grid.Column="2" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
-
+                                    <Label VerticalOptions="CenterAndExpand" Style="{StaticResource labelStyle}" FontSize="15">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Upload image six">
+                                                    <Span.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                    </Span.GestureRecognizers>
+                                                </Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                         </Grid>

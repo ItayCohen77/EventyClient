@@ -17,8 +17,20 @@ namespace EventyApp.Views.HostEstateView
         {
             UploadPicsHEViewModel upload = new UploadPicsHEViewModel();
             this.BindingContext = upload;
+            upload.SetImageSourceEvent += OnSetImageSource;
             upload.Push += (p) => Navigation.PushAsync(p);
             InitializeComponent();
+            itemImage.Source = ((Item)item).ImgSource;
+        }
+
+        private void ToPopUp(object sender, EventArgs e)
+        {
+            Navigation.ShowPopup(new PopUpAddImage(this.BindingContext));
+        }
+
+        public void OnSetImageSource(ImageSource imgSource)
+        {
+            itemImage.Source = imgSource;
         }
     }
 }

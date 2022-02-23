@@ -26,6 +26,110 @@ namespace EventyApp.ViewModel
 
         private EventyAPIProxy proxy;
 
+        #region Images
+        private string imageOne;
+        public string ImageOne
+        {
+            get
+            {
+                return this.imageOne;
+            }
+            set
+            {
+                if (this.imageOne != value)
+                {
+                    this.imageOne = value;
+                    OnPropertyChanged(nameof(ImageOne));
+                }
+            }
+        }
+
+        private string imageTwo;
+        public string ImageTwo
+        {
+            get
+            {
+                return this.imageTwo;
+            }
+            set
+            {
+                if (this.imageTwo != value)
+                {
+                    this.imageTwo = value;
+                    OnPropertyChanged(nameof(ImageTwo));
+                }
+            }
+        }
+
+        private string imageThree;
+        public string ImageThree
+        {
+            get
+            {
+                return this.imageThree;
+            }
+            set
+            {
+                if (this.imageThree != value)
+                {
+                    this.imageThree = value;
+                    OnPropertyChanged(nameof(ImageThree));
+                }
+            }
+        }
+
+        private string imageFour;
+        public string ImageFour
+        {
+            get
+            {
+                return this.imageFour;
+            }
+            set
+            {
+                if (this.imageFour != value)
+                {
+                    this.imageFour = value;
+                    OnPropertyChanged(nameof(ImageFour));
+                }
+            }
+        }
+
+        private string imageFive;
+        public string ImageFive
+        {
+            get
+            {
+                return this.imageFive;
+            }
+            set
+            {
+                if (this.imageFive != value)
+                {
+                    this.imageFive = value;
+                    OnPropertyChanged(nameof(ImageFive));
+                }
+            }
+        }
+
+        private string imageSix;
+        public string ImageSix
+        {
+            get
+            {
+                return this.imageSix;
+            }
+            set
+            {
+                if (this.imageSix != value)
+                {
+                    this.imageSix = value;
+                    OnPropertyChanged(nameof(ImageSix));
+                }
+            }
+        }
+        #endregion
+
         FileResult imageFileResult;
         public event Action<ImageSource> SetImageSourceEvent;
         public ICommand PickImageCommand => new Command(OnPickImage);
@@ -71,14 +175,14 @@ namespace EventyApp.ViewModel
 
         public ICommand AddImageCommand => new Command(AddImage);
         public async void AddImage()
-        {                
-           if (this.imageFileResult != null)
-           {
-               bool success = await proxy.UploadImage(new FileInfo()
-               {
-                  Name = this.imageFileResult.FullPath
-               });
-           }
+        {
+            if (this.imageFileResult != null)
+            {
+                bool success = await proxy.UploadImage(new FileInfo()
+                {
+                    Name = this.imageFileResult.FullPath
+                });
+            }
         }
     }
 }
