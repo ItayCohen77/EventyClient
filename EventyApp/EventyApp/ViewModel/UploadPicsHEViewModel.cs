@@ -130,6 +130,12 @@ namespace EventyApp.ViewModel
         }
         #endregion
 
+        public ICommand NextCommand => new Command(Next);
+        private void Next()
+        {
+            Push?.Invoke(new EventyApp.Views.HostEstateView.LocationHEView());
+        }
+
         FileResult imageFileResult;
         public event Action<ImageSource> SetImageSourceEvent;
         public ICommand PickImageCommand => new Command(OnPickImage);
