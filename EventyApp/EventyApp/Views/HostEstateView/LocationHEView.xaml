@@ -25,14 +25,14 @@
                         <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="265" BorderColor="#B7B7B7">
                             <StackLayout>
                                 <local:MyEntry Placeholder="Street" PlaceholderColor="Gray" Text="{Binding Street}" />
-                                <BoxView Margin="-20, 15, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                                <BoxView Margin="-20, 10, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
                                 <local:MyEntry Margin="0,15" Placeholder="Apt, suite, etc. (Optional)" PlaceholderColor="Gray" Text="{Binding StreetDetails}" />
                                 <BoxView Margin="-20, -2, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="#B7B7B7"/>
                                 <local:MyEntry Margin="0,15" Placeholder="City" PlaceholderColor="Gray" Text="{Binding City}" />
                                 <BoxView Margin="-20, -2, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="#B7B7B7"/>
                                 <BoxView Margin="-20, 49, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="#B7B7B7"/>
-                                <autocomplete:SfAutoComplete x:Name="autoComplete"
-                                     HeightRequest="40" ShowBorder="False">
+                                <autocomplete:SfAutoComplete Margin="10,2" x:Name="autoComplete"
+                                     HeightRequest="40" ShowBorder="False" Text="{Binding Country}" Watermark="Country/Region" WatermarkColor="Gray" TextSize="17">
                                     <autocomplete:SfAutoComplete.AutoCompleteSource>
                                         <ListCollection:List x:TypeArguments="x:String">
                                             <x:String>Afghanistan</x:String>
@@ -285,6 +285,9 @@
                                 </autocomplete:SfAutoComplete>
                             </StackLayout>
                         </Frame>
+
+                        <BoxView Margin="-20, 57, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                        <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Next" Command="{Binding NextCommand}" BackgroundColor="#FF5353" TextColor="White" FontAttributes="Bold" FontSize="16"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -9,9 +9,11 @@ using EventyApp.Views;
 using EventyApp.Services;
 using EventyApp.Models;
 
+
+
 namespace EventyApp.ViewModel
 {
-    class LocationHEViewModel : INotifyPropertyChanged
+    class MaxGuestsHEViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -21,11 +23,5 @@ namespace EventyApp.ViewModel
         public event Action<Page> Push;
 
         private EventyAPIProxy proxy;
-
-        public ICommand NextCommand => new Command(Next);
-        private void Next()
-        {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.MaxGuestsHEView());
-        }
     }
 }

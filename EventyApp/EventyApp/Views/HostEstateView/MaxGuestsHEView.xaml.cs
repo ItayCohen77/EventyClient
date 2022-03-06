@@ -8,17 +8,17 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using EventyApp.ViewModel;
 
-namespace EventyApp.Views
+namespace EventyApp.Views.HostEstateView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TabControlView : ContentPage
+    public partial class MaxGuestsHEView : ContentPage
     {
-        public TabControlView()
+        public MaxGuestsHEView()
         {
+            MaxGuestsHEViewModel maxGuestsHE = new MaxGuestsHEViewModel();
+            this.BindingContext = maxGuestsHE;
+            maxGuestsHE.Push += (p) => Navigation.PushAsync(p);
             InitializeComponent();
-            //TabControlViewModel tabs = new TabControlViewModel();
-            //this.BindingContext = tabs;
-            //tabs.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }
