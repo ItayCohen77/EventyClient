@@ -144,6 +144,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="C1.Xamarin.Forms.Input">
+      <Version>4.8.20213.508</Version>
+    </PackageReference>
     <PackageReference Include="Gradient">
       <Version>0.15.7.2</Version>
     </PackageReference>
@@ -151,7 +154,10 @@
       <Version>2.80.3</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Licensing">
-      <Version>19.4.0.53</Version>
+      <Version>19.4.0.54</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete">
+      <Version>19.4.0.54</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>2.0.0</Version>
