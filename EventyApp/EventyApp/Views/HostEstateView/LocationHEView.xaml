@@ -42,7 +42,7 @@
                                             <x:String>Andorra</x:String>
                                             <x:String>Angola</x:String>
                                             <x:String>Anguilla</x:String>
-                                            <x:String>Antigua & Barbuda</x:String>
+                                            <x:String>Antigua and Barbuda</x:String>
                                             <x:String>Argentina</x:String>
                                             <x:String>Armenia</x:String>
                                             <x:String>Aruba</x:String>
@@ -170,139 +170,116 @@
                                             <x:String>Mali</x:String>
                                             <x:String>Malta</x:String>
                                             <x:String>Marshall Islands</x:String>
-                                            <x:String>Martinique">Martinique</x:String>
-                                            <x:String>Mauritania">Mauritania</x:String>
-                                            <x:String>Mauritius">Mauritius</x:String>
-                                            <x:String>Mayotte">Mayotte</x:String>
-                                            <x:String>Mexico">Mexico</x:String>
-                                            <x:String>Midway Islands">Midway Islands</x:String>
-                                            <x:String>Moldova">Moldova</x:String>
-                                            <x:String>Monaco">Monaco</x:String>
-                                            <x:String>Mongolia">Mongolia</x:String>
-                                            <x:String>Montserrat">Montserrat</x:String>
-                                            <x:String>Morocco">Morocco</x:String>
-                                            <x:String>Mozambique">Mozambique</x:String>
-                                            <x:String>Myanmar">Myanmar</x:String>
-                                            <x:String>Nambia">Nambia</x:String>
-                                            <x:String>Nauru">Nauru</x:String>
-                                            <x:String>Nepal">Nepal</x:String>
-                                            <x:String>Netherland Antilles">Netherland Antilles</x:String>
-                                            <x:String>Netherlands">Netherlands (Holland, Europe)</x:String>
-                                            <x:String>Nevis">Nevis</x:String>
-                                            <x:String>New Caledonia">New Caledonia</x:String>
-                                            <x:String>New Zealand">New Zealand</x:String>
-                                            <x:String>Nicaragua">Nicaragua</x:String>
-                                            <x:String>Niger">Niger</x:String>
-                                            <x:String>Nigeria">Nigeria</x:String>
-                                            <x:String>Niue">Niue</x:String>
-                                            <x:String>Norfolk Island">Norfolk Island</x:String>
-                                            <x:String>Norway">Norway</x:String>
-                                            <x:String>Oman">Oman</x:String>
-                                            <x:String>Pakistan">Pakistan</x:String>
-                                            <x:String>Palau Island">Palau Island</x:String>
-                                            <x:String>Palestine">Palestine</x:String>
-                                            <x:String>Panama">Panama</x:String>
-                                            <x:String>Papua New Guinea">Papua New Guinea</x:String>
-                                            <x:String>Paraguay">Paraguay</x:String>
-                                            <x:String>Peru">Peru</x:String>
-                                            <x:String>Phillipines">Philippines</x:String>
-                                            <x:String>Pitcairn Island">Pitcairn Island</x:String>
-                                            <x:String>Poland">Poland</x:String>
-                                            <x:String>Portugal">Portugal</x:String>
-                                            <x:String>Puerto Rico">Puerto Rico</x:String>
-                                            <x:String>Qatar">Qatar</x:String>
-                                            <x:String>Republic of Montenegro">Republic of Montenegro</x:String>
-                                            <x:String>Republic of Serbia">Republic of Serbia</x:String>
-                                            <x:String>Reunion">Reunion</x:String>
-                                            <x:String>Romania">Romania</x:String>
-                                            <x:String>Russia">Russia</x:String>
-                                            <x:String>Rwanda">Rwanda</x:String>
-                                            <x:String>St Barthelemy">St Barthelemy</x:String>
-                                            <x:String>St Eustatius">St Eustatius</x:String>
-                                            <x:String>St Helena">St Helena</x:String>
-                                            <x:String>St Kitts-Nevis">St Kitts-Nevis</x:String>
-                                            <x:String>St Lucia">St Lucia</x:String>
-                                            <x:String>St Maarten">St Maarten</x:String>
-                                            <x:String>St Pierre & Miquelon">St Pierre & Miquelon</x:String>
-                                            <x:String>St Vincent & Grenadines">St Vincent & Grenadines</x:String>
-                                            <x:String>Saipan">Saipan</x:String>
-                                            <x:String>Samoa">Samoa</x:String>
-                                            <x:String>Samoa American">Samoa American</x:String>
-                                            <x:String>San Marino">San Marino</x:String>
-                                            <x:String>Sao Tome & Principe">Sao Tome & Principe</x:String>
-                                            <x:String>Saudi Arabia">Saudi Arabia</x:String>
-                                            <x:String>Senegal">Senegal</x:String>
-                                            <x:String>Seychelles">Seychelles</x:String>
-                                            <x:String>Sierra Leone">Sierra Leone</x:String>
-                                            <x:String>Singapore">Singapore</x:String>
-                                            <x:String>Slovakia">Slovakia</x:String>
-                                            <x:String>Slovenia">Slovenia</x:String>
-                                            <x:String>Solomon Islands">Solomon Islands</x:String>
-                                            <x:String>Somalia">Somalia</x:String>
-                                            <x:String>South Africa">South Africa</x:String>
-                                            <x:String>Spain">Spain</x:String>
-                                            <x:String>Sri Lanka">Sri Lanka</x:String>
-                                            <x:String>Sudan">Sudan</x:String>
-                                            <x:String>Suriname">Suriname</x:String>
-                                            <x:String>Swaziland">Swaziland</x:String>
-                                            <x:String>Sweden">Sweden</x:String>
-                                            <x:String>Switzerland">Switzerland</x:String>
-                                            <x:String>Syria">Syria</x:String>
-                                            <x:String>Tahiti">Tahiti</x:String>
-                                            <x:String>Taiwan">Taiwan</x:String>
-                                            <x:String>Tajikistan">Tajikistan</x:String>
-                                            <x:String>Tanzania">Tanzania</x:String>
-                                            <x:String>Thailand">Thailand</x:String>
-                                            <x:String>Togo">Togo</x:String>
-                                            <x:String>Tokelau">Tokelau</x:String>
-                                            <x:String>Tonga">Tonga</x:String>
-                                            <x:String>Trinidad & Tobago">Trinidad & Tobago</x:String>
-                                            <x:String>Tunisia">Tunisia</x:String>
-                                            <x:String>Turkey">Turkey</x:String>
-                                            <x:String>Turkmenistan">Turkmenistan</x:String>
-                                            <x:String>Turks & Caicos Is">Turks & Caicos Is</x:String>
-                                            <x:String>Tuvalu">Tuvalu</x:String>
-                                            <x:String>Uganda">Uganda</x:String>
-                                            <x:String>United Kingdom">United Kingdom</x:String>
-                                            <x:String>Ukraine">Ukraine</x:String>
-                                            <x:String>United Arab Erimates">United Arab Emirates</x:String>
-                                            <x:String>United States of America">United States of America</x:String>
-                                            <x:String>Uraguay">Uruguay</x:String>
-                                            <x:String>Uzbekistan">Uzbekistan</x:String>
-                                            <x:String>Vanuatu">Vanuatu</x:String>
-                                            <x:String>Vatican City State">Vatican City State</x:String>
-                                            <x:String>Venezuela">Venezuela</x:String>
-                                            <x:String>Vietnam">Vietnam</x:String>
-                                            <x:String>Virgin Islands (Brit)">Virgin Islands (Brit)</x:String>
-                                            <x:String>Virgin Islands (USA)">Virgin Islands (USA)</x:String>
-                                            <x:String>Wake Island">Wake Island</x:String>
-                                            <x:String>Wallis & Futana Is">Wallis & Futana Is</x:String>
-                                            <x:String>Yemen">Yemen</x:String>
-                                            <x:String>Zaire">Zaire</x:String>
-                                            <x:String>Zambia">Zambia</x:String>
-                                            <x:String>Zimbabwe">Zimbabwe</x:String>
-                                            <x:String>Afganistan</x:String>
-                                            <x:String>Albania</x:String>
-                                            <x:String>Algeria</x:String>
-                                            <x:String>American Samoa</x:String>
-                                            <x:String>Andorra</x:String>
-                                            <x:String>Angola</x:String>
-                                            <x:String>Anguilla</x:String>
-                                            <x:String>Antigua and Barbuda</x:String>
-                                            <x:String>Argentina</x:String>
-                                            <x:String>Armenia</x:String>
-                                            <x:String>Aruba</x:String>
-                                            <x:String>Australia</x:String>
-                                            <x:String>Albania</x:String>
-                                            <x:String>Algeria</x:String>
-                                            <x:String>American Samoa</x:String>
-                                            <x:String>Andorra</x:String>
-                                            <x:String>Angola</x:String>
-                                            <x:String>Anguilla</x:String>
-                                            <x:String>Antigua and Barbuda</x:String>
-                                            <x:String>Argentina</x:String>
-                                            <x:String>Armenia</x:String>
-                                            <x:String>Aruba</x:String>
+                                            <x:String>Martinique</x:String>
+                                            <x:String>Mauritania</x:String>
+                                            <x:String>Mauritius</x:String>
+                                            <x:String>Mayotte</x:String>
+                                            <x:String>Mexico</x:String>
+                                            <x:String>Midway Islands</x:String>
+                                            <x:String>Moldova</x:String>
+                                            <x:String>Monaco</x:String>
+                                            <x:String>Mongolia</x:String>
+                                            <x:String>Montserrat</x:String>
+                                            <x:String>Morocco</x:String>
+                                            <x:String>Mozambique</x:String>
+                                            <x:String>Myanmar</x:String>
+                                            <x:String>Nambia</x:String>
+                                            <x:String>Nauru</x:String>
+                                            <x:String>Nepal</x:String>
+                                            <x:String>Netherland Antilles</x:String>
+                                            <x:String>Netherlands (Holland, Europe)</x:String>
+                                            <x:String>Nevis</x:String>
+                                            <x:String>New Caledonia</x:String>
+                                            <x:String>New Zealand</x:String>
+                                            <x:String>Nicaragua</x:String>
+                                            <x:String>Niger</x:String>
+                                            <x:String>Nigeria</x:String>
+                                            <x:String>Niue</x:String>
+                                            <x:String>Norfolk Island</x:String>
+                                            <x:String>Norway</x:String>
+                                            <x:String>Oman</x:String>
+                                            <x:String>Pakistan</x:String>
+                                            <x:String>Palau Island</x:String>
+                                            <x:String>Panama</x:String>
+                                            <x:String>Papua New Guinea</x:String>
+                                            <x:String>Paraguay</x:String>
+                                            <x:String>Peru</x:String>
+                                            <x:String>Philippines</x:String>
+                                            <x:String>Pitcairn Island</x:String>
+                                            <x:String>Poland</x:String>
+                                            <x:String>Portugal</x:String>
+                                            <x:String>Puerto Rico</x:String>
+                                            <x:String>Qatar</x:String>
+                                            <x:String>Republic of Montenegro</x:String>
+                                            <x:String>Republic of Serbia</x:String>
+                                            <x:String>Reunion</x:String>
+                                            <x:String>Romania</x:String>
+                                            <x:String>Russia</x:String>
+                                            <x:String>Rwanda</x:String>
+                                            <x:String>St Barthelemy</x:String>
+                                            <x:String>St Eustatius</x:String>
+                                            <x:String>St Helena</x:String>
+                                            <x:String>St Kitts-Nevis</x:String>
+                                            <x:String>St Lucia</x:String>
+                                            <x:String>St Maarten</x:String>
+                                            <x:String>St Pierre and Miquelon</x:String>
+                                            <x:String>St Vincent and Grenadines</x:String>
+                                            <x:String>Saipan</x:String>
+                                            <x:String>Samoa</x:String>
+                                            <x:String>Samoa American</x:String>
+                                            <x:String>San Marino</x:String>
+                                            <x:String>Sao Tome and Principe</x:String>
+                                            <x:String>Saudi Arabia</x:String>
+                                            <x:String>Senegal</x:String>
+                                            <x:String>Seychelles</x:String>
+                                            <x:String>Sierra Leone</x:String>
+                                            <x:String>Singapore</x:String>
+                                            <x:String>Slovakia</x:String>
+                                            <x:String>Slovenia</x:String>
+                                            <x:String>Solomon Islands</x:String>
+                                            <x:String>Somalia</x:String>
+                                            <x:String>South Africa</x:String>
+                                            <x:String>Spain</x:String>
+                                            <x:String>Sri Lanka</x:String>
+                                            <x:String>Sudan</x:String>
+                                            <x:String>Suriname</x:String>
+                                            <x:String>Swaziland</x:String>
+                                            <x:String>Sweden</x:String>
+                                            <x:String>Switzerland</x:String>
+                                            <x:String>Syria</x:String>
+                                            <x:String>Tahiti</x:String>
+                                            <x:String>Taiwan</x:String>
+                                            <x:String>Tajikistan</x:String>
+                                            <x:String>Tanzania</x:String>
+                                            <x:String>Thailand</x:String>
+                                            <x:String>Togo</x:String>
+                                            <x:String>Tokelau</x:String>
+                                            <x:String>Tonga</x:String>
+                                            <x:String>Trinidad and Tobago</x:String>
+                                            <x:String>Tunisia</x:String>
+                                            <x:String>Turkey</x:String>
+                                            <x:String>Turkmenistan</x:String>
+                                            <x:String>Turks and Caicos Is</x:String>
+                                            <x:String>Tuvalu</x:String>
+                                            <x:String>Uganda</x:String>
+                                            <x:String>United Kingdom</x:String>
+                                            <x:String>Ukraine</x:String>
+                                            <x:String>United Arab Emirates</x:String>
+                                            <x:String>United States of America</x:String>
+                                            <x:String>Uruguay</x:String>
+                                            <x:String>Uzbekistan</x:String>
+                                            <x:String>Vanuatu</x:String>
+                                            <x:String>Vatican City State</x:String>
+                                            <x:String>Venezuela</x:String>
+                                            <x:String>Vietnam</x:String>
+                                            <x:String>Virgin Islands (Brit)</x:String>
+                                            <x:String>Virgin Islands (USA)</x:String>
+                                            <x:String>Wake Island</x:String>
+                                            <x:String>Wallis and Futana Is</x:String>
+                                            <x:String>Yemen</x:String>
+                                            <x:String>Zaire</x:String>
+                                            <x:String>Zambia</x:String>
+                                            <x:String>Zimbabwe</x:String>
                                         </ListCollection:List>
                                     </autocomplete:SfAutoComplete.AutoCompleteSource>
                                 </autocomplete:SfAutoComplete>
