@@ -15,11 +15,11 @@
                         <GradientStop Color="#FFAF7B" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-                <Label Margin="0,50" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Choose the maximum amount of people that can be in your space"/>
+                <Label Margin="0,100" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Choose the maximum amount of people that can be in your space"/>
             </Frame>
 
             <StackLayout Spacing="-5">
-                <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
+                <Frame Margin="0,300,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                     <StackLayout>
                         
                     </StackLayout>
