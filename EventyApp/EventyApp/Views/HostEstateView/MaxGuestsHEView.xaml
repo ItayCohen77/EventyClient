@@ -4,6 +4,7 @@
              x:Class="EventyApp.Views.HostEstateView.MaxGuestsHEView"
              xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid BackgroundColor="White">
@@ -15,13 +16,19 @@
                         <GradientStop Color="#FFAF7B" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-                <Label Margin="0,100" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Choose the maximum amount of people that can be in your space"/>
+                <Label Margin="0,70" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Last things and your place is up!"/>
             </Frame>
 
             <StackLayout Spacing="-5">
-                <Frame Margin="0,300,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
+                <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                     <StackLayout>
-                        
+                        <Label Margin="0,20" Text="Choose the maximum amount of people that can be in your space" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+                        <numeric:SfNumericUpDown Minimum="0" Maximum="20" SpinButtonAlignment="Both" MaximumDecimalDigits="0" Value="{Binding MaxPeople}" IsEditable="True" TextAlignment="Center"/>
+                        <Label Margin="0,20" Text="Cost per hour" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+                        <numeric:SfNumericUpDown Minimum="0" SpinButtonAlignment="Both" MaximumDecimalDigits="0" Value="{Binding CostPerHour}" IsEditable="True" FormatString="c" TextAlignment="Center"/>
+
+                        <BoxView Margin="-20, 105, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                        <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Done" Command="{Binding DoneCommand}" BackgroundColor="#FF5353" TextColor="White" FontAttributes="Bold" FontSize="16"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
