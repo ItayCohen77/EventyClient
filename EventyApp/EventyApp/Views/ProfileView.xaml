@@ -5,7 +5,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentView.Content>
         <ScrollView>
-        <StackLayout Spacing="15" BackgroundColor="White">
+        <StackLayout Spacing="15" BackgroundColor="White" IsVisible="{Binding NotLogIn}">
             <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Your profile"/>
             <Label Margin="20,0,0,0" Style="{StaticResource labelStyle}" FontSize="16" Text="Log in to start planning your dream event."/>
             <Button Margin="50,0,50,0"

@@ -18,6 +18,30 @@ namespace EventyApp.ViewModel
         }
         public event Action<Page> Push;
 
+        private bool notlogIn;
+        public bool NotLogIn
+        {
+            get
+            {
+                return this.notlogIn;
+            }
+            set
+            {
+                if (this.notlogIn != value)
+                {
+                    this.notlogIn = value;
+                    OnPropertyChanged(nameof(NotLogIn));
+                }
+            }
+        }
+        public ProfileViewModel()
+        {
+            if (((App)App.Current).CurrentUser == null)
+            {
+                NotLogIn = true;
+            }
+        }
+
         public ICommand LogInCommand => new Command(LogIn);
         private void LogIn()
         {
@@ -32,6 +56,6 @@ namespace EventyApp.ViewModel
         private void Host()
         {
             Push?.Invoke(new EventyApp.Views.HostEstateView.WelcomeHEView());
-        }
+        } 
     }
 }
