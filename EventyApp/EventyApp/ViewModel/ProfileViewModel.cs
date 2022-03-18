@@ -34,11 +34,34 @@ namespace EventyApp.ViewModel
                 }
             }
         }
+
+        private bool yeslogIn;
+        public bool YesLogIn
+        {
+            get
+            {
+                return this.yeslogIn;
+            }
+            set
+            {
+                if (this.yeslogIn != value)
+                {
+                    this.yeslogIn = value;
+                    OnPropertyChanged(nameof(YesLogIn));
+                }
+            }
+        }
         public ProfileViewModel()
         {
             if (((App)App.Current).CurrentUser == null)
             {
                 NotLogIn = true;
+                YesLogIn = false;
+            }
+            else
+            {
+                NotLogIn = false;
+                YesLogIn = true;
             }
         }
 
