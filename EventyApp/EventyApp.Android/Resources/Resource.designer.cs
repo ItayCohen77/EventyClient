@@ -28181,6 +28181,9 @@ namespace EventyApp.Droid
 			// aapt resource value: 0x7F0700AF
 			public const int navigation_empty_icon = 2131165359;
 			
+			// aapt resource value: 0x7F0700BB
+			public const int Notifications = 2131165371;
+			
 			// aapt resource value: 0x7F0700B0
 			public const int notification_action_background = 2131165360;
 			
@@ -28214,59 +28217,65 @@ namespace EventyApp.Droid
 			// aapt resource value: 0x7F0700BA
 			public const int notification_tile_bg = 2131165370;
 			
-			// aapt resource value: 0x7F0700BB
-			public const int notify_panel_notification_icon_bg = 2131165371;
-			
 			// aapt resource value: 0x7F0700BC
-			public const int party = 2131165372;
+			public const int notify_panel_notification_icon_bg = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int popup_background_material = 2131165373;
+			public const int party = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int popup_background_mtrl_mult = 2131165374;
+			public const int Payments = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int preference_list_divider_material = 2131165375;
+			public const int popup_background_material = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int Privatehouse = 2131165376;
+			public const int popup_background_mtrl_mult = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int Profile = 2131165377;
+			public const int preference_list_divider_material = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int Search = 2131165378;
+			public const int Privatehouse = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int Settings = 2131165379;
+			public const int Profile = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int sfclosebutton = 2131165380;
+			public const int Search = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int shadow = 2131165381;
+			public const int Settings = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int spinner_dropdown_background_down = 2131165382;
+			public const int sfclosebutton = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int spinner_dropdown_background_up = 2131165383;
+			public const int shadow = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int styleinfo = 2131165384;
+			public const int spinner_dropdown_background_down = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int test_custom_background = 2131165385;
+			public const int spinner_dropdown_background_up = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int tooltip_frame_dark = 2131165386;
+			public const int styleinfo = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int tooltip_frame_light = 2131165387;
+			public const int test_custom_background = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int UpButton = 2131165388;
+			public const int tooltip_frame_dark = 2131165388;
+			
+			// aapt resource value: 0x7F0700CD
+			public const int tooltip_frame_light = 2131165389;
+			
+			// aapt resource value: 0x7F0700CE
+			public const int UpButton = 2131165390;
+			
+			// aapt resource value: 0x7F0700CF
+			public const int User = 2131165391;
 			
 			static Drawable()
 			{

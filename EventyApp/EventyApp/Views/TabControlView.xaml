@@ -37,7 +37,7 @@
             <tabs:ViewSwitcher x:Name="Switcher"
                        Grid.Row="0"
                        Animate="False"
-                       SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                       SelectedIndex="2">
                 <views:ExploreView />
                 <views:WishlistsView />
                 <views:EventsView />

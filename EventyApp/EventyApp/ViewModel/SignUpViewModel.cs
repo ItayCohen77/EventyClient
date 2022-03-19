@@ -365,7 +365,7 @@ namespace EventyApp.ViewModel
             {
                 User user = await proxy.SignUp(Email, Password, FirstName, LastName, BirthDate, PhoneNum);
                 ((App)App.Current).CurrentUser = user;
-                Push?.Invoke(new TabControlView());
+                Push?.Invoke(new LoginView());
             }
         }
     }

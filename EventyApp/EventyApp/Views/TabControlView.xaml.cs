@@ -12,13 +12,13 @@ namespace EventyApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TabControlView : ContentPage
-    {
+    {       
         public TabControlView()
-        {
+        {      
+            TabControlViewModel tabs = new TabControlViewModel();
+            this.BindingContext = tabs;
+            tabs.Push += (p) => Navigation.PushAsync(p);
             InitializeComponent();
-            //TabControlViewModel tabs = new TabControlViewModel();
-            //this.BindingContext = tabs;
-            //tabs.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

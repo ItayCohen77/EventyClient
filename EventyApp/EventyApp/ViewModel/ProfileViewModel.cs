@@ -51,6 +51,41 @@ namespace EventyApp.ViewModel
                 }
             }
         }
+
+        private string fullname;
+        public string FullName
+        {
+            get
+            {
+                return this.fullname;
+            }
+            set
+            {
+                if (this.fullname != value)
+                {
+                    this.fullname = value;
+                    OnPropertyChanged(nameof(FullName));
+                }
+            }
+        }
+
+        private DateTime joinedAt;
+        public DateTime JoinedAt
+        {
+            get
+            {
+                return this.joinedAt;
+            }
+            set
+            {
+                if (this.joinedAt != value)
+                {
+                    this.joinedAt = value;
+                    OnPropertyChanged(nameof(JoinedAt));
+                }
+            }
+        }
+
         public ProfileViewModel()
         {
             if (((App)App.Current).CurrentUser == null)
@@ -62,6 +97,8 @@ namespace EventyApp.ViewModel
             {
                 NotLogIn = false;
                 YesLogIn = true;
+                FullName = $"{((App)App.Current).CurrentUser.FirstName} {((App)App.Current).CurrentUser.LastName}";
+                JoinedAt = ((App)App.Current).CurrentUser.CreatedAt.Date;
             }
         }
 
@@ -70,6 +107,14 @@ namespace EventyApp.ViewModel
         {
             Push?.Invoke(new LoginView());
         }
+
+        public ICommand LogOutCommand => new Command(LogOut);
+        private void LogOut()
+        {
+            ((App)App.Current).CurrentUser = null;
+            Push?.Invoke(new TabControlView());
+        }
+
         public ICommand SignUpCommand => new Command(SignUp);
         private void SignUp()
         {

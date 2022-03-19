@@ -21,7 +21,7 @@ namespace EventyApp.ViewModel
 
         public TabControlViewModel()
         {
-            //SelectedViewModelIndex = 0;
+            SelectedViewModelIndex = 0;
         }
 
         private int selectedViewModelIndex;
