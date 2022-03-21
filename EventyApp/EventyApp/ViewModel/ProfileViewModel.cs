@@ -6,6 +6,8 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using EventyApp.Views;
+using EventyApp.Models;
+using EventyApp.Services;
 
 namespace EventyApp.ViewModel
 {
@@ -16,7 +18,9 @@ namespace EventyApp.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
         public event Action<Page> Push;
+        private EventyAPIProxy proxy;
 
         private bool notlogIn;
         public bool NotLogIn
@@ -48,6 +52,40 @@ namespace EventyApp.ViewModel
                 {
                     this.yeslogIn = value;
                     OnPropertyChanged(nameof(YesLogIn));
+                }
+            }
+        }
+
+        private string profileImage;
+        public string ProfileImage
+        {
+            get
+            {
+                return this.profileImage;
+            }
+            set
+            {
+                if (this.profileImage != value)
+                {
+                    this.profileImage = value;
+                    OnPropertyChanged(nameof(ProfileImage));
+                }
+            }
+        }
+
+        private User user;
+        public User User
+        {
+            get
+            {
+                return this.user;
+            }
+            set
+            {
+                if (this.user != value)
+                {
+                    this.user = value;
+                    OnPropertyChanged(nameof(User));
                 }
             }
         }
@@ -88,7 +126,15 @@ namespace EventyApp.ViewModel
 
         public ProfileViewModel()
         {
-            if (((App)App.Current).CurrentUser == null)
+            proxy = EventyAPIProxy.CreateProxy();
+            LoadProfile();
+        }
+
+        public void LoadProfile()
+        {
+            User = ((App)App.Current).CurrentUser;
+
+            if (User == null)
             {
                 NotLogIn = true;
                 YesLogIn = false;
@@ -97,8 +143,9 @@ namespace EventyApp.ViewModel
             {
                 NotLogIn = false;
                 YesLogIn = true;
-                FullName = $"{((App)App.Current).CurrentUser.FirstName} {((App)App.Current).CurrentUser.LastName}";
-                JoinedAt = ((App)App.Current).CurrentUser.CreatedAt.Date;
+                FullName = $"{User.FirstName} {User.LastName}";
+                JoinedAt = User.CreatedAt.Date;
+                ProfileImage = $"{proxy.baseUri}/imgs/{User.ProfileImage}";
             }
         }
 

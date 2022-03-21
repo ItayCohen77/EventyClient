@@ -27,7 +27,7 @@ namespace EventyApp.Services
         private const string DEV_WINDOWS_PHOTOS_URL = "https://localhost:44409/Images/"; //API url when using windoes on development
 
         private HttpClient client;
-        private string baseUri;
+        public string baseUri;
         private string basePhotosUri;
         private static EventyAPIProxy proxy = null;
 
