@@ -11,17 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.Xamarin.Forms.Input" Version="4.8.20213.508" />
+    <PackageReference Include="C1.Xamarin.Forms.Input" Version="4.8.20213.512" />
     <PackageReference Include="Gradient" Version="0.15.7.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Sharpnado.Tabs" Version="2.2.0" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.3" />
-    <PackageReference Include="Syncfusion.Licensing" Version="19.4.0.55" />
-    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="19.4.0.55" />
-    <PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown" Version="19.4.0.55" />
+    <PackageReference Include="Syncfusion.Licensing" Version="19.4.0.56" />
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="19.4.0.56" />
+    <PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown" Version="19.4.0.56" />
     <PackageReference Include="System.Text.Json" Version="6.0.2" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.1" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
