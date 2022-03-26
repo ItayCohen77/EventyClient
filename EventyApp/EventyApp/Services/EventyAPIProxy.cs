@@ -218,6 +218,5 @@ namespace EventyApp.Services
                 return false;
             }
         }
-
     }
 }
