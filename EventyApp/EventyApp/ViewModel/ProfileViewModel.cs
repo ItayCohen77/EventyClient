@@ -1,13 +1,17 @@
-﻿using System;
+﻿using EventyApp.Models;
+using EventyApp.Services;
+using EventyApp.Views;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
-using EventyApp.Views;
-using EventyApp.Models;
-using EventyApp.Services;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Xamarin.Essentials;
 
 namespace EventyApp.ViewModel
 {
@@ -21,6 +25,8 @@ namespace EventyApp.ViewModel
 
         public event Action<Page> Push;
         private EventyAPIProxy proxy;
+        private FileResult imageFileResult;
+        public event Action<ImageSource> SetImageSourceEvent;
 
         private bool notlogIn;
         public bool NotLogIn
@@ -171,6 +177,35 @@ namespace EventyApp.ViewModel
         private void Host()
         {
             Push?.Invoke(new EventyApp.Views.HostEstateView.WelcomeHEView());
-        } 
+        }
+
+        public Command ChangePfpCommand => new Command(() => ChangePfp());
+        public async void ChangePfp()
+        {
+            if (MediaPicker.IsCaptureSupported)
+            {
+                FileResult result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions()
+                {
+                    Title = "Pick a profile picture"
+                });
+
+                if (result != null)
+                {
+                    this.imageFileResult = result;
+
+                    var stream = await result.OpenReadAsync();
+                    ImageSource imgSource = ImageSource.FromStream(() => stream);
+                    if (SetImageSourceEvent != null)
+                        SetImageSourceEvent(imgSource);
+                    bool uploadImageSuccess = await proxy.UploadImage(imageFileResult.FullPath, $"a{User.Id}.jpg");
+                    if (uploadImageSuccess)
+                        User.ProfileImage = $"a{User.Id}.jpg";
+                }
+            }
+            else
+            {
+                // add error popup
+            }
+        }
     }
 }

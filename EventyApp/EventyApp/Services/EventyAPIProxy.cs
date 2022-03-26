@@ -19,9 +19,9 @@ namespace EventyApp.Services
     {
         private const string CLOUD_URL = "TBD"; //API url when going on the cloud
         private const string CLOUD_PHOTOS_URL = "TBD";
-        private const string DEV_ANDROID_EMULATOR_URL = "http://10.0.2.2:44409/EventyAPI"; //API url when using emulator on android
-        private const string DEV_ANDROID_PHYSICAL_URL = "http://10.0.2.2:44409/EventyAPI"; //API url when using physucal device on android
-        private const string DEV_WINDOWS_URL = "https://localhost:44409/EventyAPI"; //API url when using windoes on development
+        private const string DEV_ANDROID_EMULATOR_URL = "http://10.0.2.2:44409"; //API url when using emulator on android
+        private const string DEV_ANDROID_PHYSICAL_URL = "http://10.0.2.2:44409"; //API url when using physucal device on android
+        private const string DEV_WINDOWS_URL = "https://localhost:44409"; //API url when using windoes on development
         private const string DEV_ANDROID_EMULATOR_PHOTOS_URL = "http://10.0.2.2:44409/Images/"; //API url when using emulator on android
         private const string DEV_ANDROID_PHYSICAL_PHOTOS_URL = "http://10.0.2.2:44409/Images/"; //API url when using physucal device on android
         private const string DEV_WINDOWS_PHOTOS_URL = "https://localhost:44409/Images/"; //API url when using windoes on development
@@ -86,7 +86,7 @@ namespace EventyApp.Services
         {
             try
             {
-                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/login?email={email}&password={password}");
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/login?email={email}&password={password}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -114,7 +114,7 @@ namespace EventyApp.Services
                 var multipartFormDataContent = new MultipartFormDataContent();
                 var fileContent = new ByteArrayContent(File.ReadAllBytes(fileInfo.Name));
                 multipartFormDataContent.Add(fileContent, "file", "kuku.jpg");
-                HttpResponseMessage response = await client.PostAsync($"{this.baseUri}/UploadImage", multipartFormDataContent);
+                HttpResponseMessage response = await client.PostAsync($"{this.baseUri}/EventyAPI/UploadImage", multipartFormDataContent);
                 if (response.IsSuccessStatusCode)
                 {
                     return true;
@@ -146,7 +146,7 @@ namespace EventyApp.Services
 
                 string json = JsonConvert.SerializeObject(a);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                string url = $"{this.baseUri}/signup";
+                string url = $"{this.baseUri}/EventyAPI/signup";
                 HttpResponseMessage response = await this.client.PostAsync(url, content);
 
                 if (response.IsSuccessStatusCode)
@@ -176,7 +176,7 @@ namespace EventyApp.Services
         {
             try
             {
-                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/email-exists?email={email}");
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/email-exists?email={email}");
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
@@ -194,5 +194,30 @@ namespace EventyApp.Services
                 return null;
             }
         }
+
+        public async Task<bool> UploadImage(string fullPath, string targetFileName)
+        {
+            try
+            {
+                var multipartFormDataContent = new MultipartFormDataContent();
+                var fileContent = new ByteArrayContent(File.ReadAllBytes(fullPath));
+                multipartFormDataContent.Add(fileContent, "file", targetFileName);
+                string url = $"{this.baseUri}/EventyAPI/uploadimage";
+
+                HttpResponseMessage response = await client.PostAsync(url, multipartFormDataContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+
     }
 }

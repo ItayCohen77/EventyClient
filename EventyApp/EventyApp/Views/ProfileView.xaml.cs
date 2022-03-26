@@ -18,7 +18,13 @@ namespace EventyApp.Views
             InitializeComponent();
             ProfileViewModel profileview = new ProfileViewModel();
             this.BindingContext = profileview;
+            profileview.SetImageSourceEvent += ChangePfpSource;
             profileview.Push += (p) => Navigation.PushAsync(p);
+        }
+
+        public void ChangePfpSource(ImageSource imgSource)
+        {
+            ProfilePictureImage.Source = imgSource;
         }
     }
 }
