@@ -172,6 +172,113 @@ namespace EventyApp.Services
             }
         }
 
+        public async Task<Place> UploadPlace(string typePlace, string featureOne, string featureTwo, string featureThree, string featureFour, string featureFive, string description, string imageOne, string imageTwo, string imageThree, string imageFour, string imageFive, string imageSix, string street, string apartment, string city, string zip, string country, int maxPeople, int costPerHour)
+        {
+            try
+            {
+                User user = ((App)App.Current).CurrentUser;
+                int typePlacedummy = -1;
+                if(typePlace == "Apartment")
+                {
+                    Apartment a = new Apartment()
+                    {
+                        HasSpeakerAndMic = false,
+                        HasAirConditioner = false,
+                        HasCoffeeMachine = false,
+                        HasTv = false,
+                        HasWaterHeater = false
+                    };
+
+                    typePlacedummy = 1;
+                }
+                else if(typePlace == "Hall")
+                {
+                    Hall h = new Hall()
+                    {
+                        HasSpeakerAndMic = false,
+                        HasBar = false,
+                        HasChairs = false,
+                        HasProjector = false,
+                        HasTables = false
+                    };
+
+                    typePlacedummy = 2;
+                }
+                else if (typePlace == "Private house")
+                {
+                    PrivateHouse ph = new PrivateHouse()
+                    {
+                        HasSpeakerAndMic = false,
+                        HasAirConditioner = false,
+                        HasCoffeeMachine = false,
+                        HasTv = false,
+                        HasWaterHeater = false
+                    };
+
+                    typePlacedummy = 3;
+                }
+                else
+                {
+                    HouseBackyard hb = new HouseBackyard()
+                    {
+                        HasBbq = false,
+                        HasHotub = false,
+                        HasChairs = false,
+                        HasPool = false,
+                        HasTables = false
+                    };
+
+                    typePlacedummy = 4;
+                }
+
+                Place place = new Place()
+                {
+                    PlaceType = typePlacedummy,
+                    OwnerId = user.Id,
+                    Price = costPerHour,
+                    Summary = description,
+                    PlaceImage1 = imageOne,
+                    PlaceImage2 = imageTwo,
+                    PlaceImage3 = imageThree,
+                    PlaceImage4 = imageFour,
+                    PlaceImage5 = imageFive,
+                    PlaceImage6 = imageSix,
+                    PlaceAddress = street,
+                    Apartment = apartment,
+                    City = city,
+                    Zip = zip,
+                    Country = country,
+                    TotalOccupancy = maxPeople
+                };
+
+                string json = JsonConvert.SerializeObject(place);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                string url = $"{this.baseUri}/EventyAPI/hostplace";
+                HttpResponseMessage response = await this.client.PostAsync(url, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerSettings options = new JsonSerializerSettings
+                    {
+                        PreserveReferencesHandling = PreserveReferencesHandling.All
+                    };
+
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    Place returnedPlace = JsonConvert.DeserializeObject<Place>(jsonContent, options);
+                    return returnedPlace;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
         public async Task<bool?> EmailExists(string email)
         {
             try

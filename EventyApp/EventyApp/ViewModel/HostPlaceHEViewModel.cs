@@ -11,7 +11,7 @@ using EventyApp.Models;
 
 namespace EventyApp.ViewModel
 {
-    class LocationHEViewModel : INotifyPropertyChanged
+    class HostPlaceHEViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -329,27 +329,38 @@ namespace EventyApp.ViewModel
             }
         }
 
-        public ICommand NextCommand => new Command(Next);
-        private void Next()
+        private int maxPeople;
+        public int MaxPeople
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.MaxGuestsHEView(this.TypePlace, this.FeatureOne, this.FeatureTwo, this.FeatureThree, this.FeatureFour, this.FeatureFive, this.Description, this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix, this.Street, this.Apartment, this.City, this.Zip, this.Country));
+            get
+            {
+                return this.maxPeople;
+            }
+            set
+            {
+                if (this.maxPeople != value)
+                {
+                    this.maxPeople = value;
+                    OnPropertyChanged(nameof(MaxPeople));
+                }
+            }
         }
 
-        public LocationHEViewModel(string typePlace, string featureOne, string featureTwo, string featureThree, string featureFour, string featureFive, string description, string imageOne, string imageTwo, string imageThree, string imageFour, string imageFive, string imageSix)
+        private int costPerHour;
+        public int CostPerHour
         {
-            this.TypePlace = typePlace;
-            this.FeatureOne = featureOne;
-            this.FeatureTwo = featureTwo;
-            this.FeatureThree = featureThree;
-            this.FeatureFour = featureFour;
-            this.FeatureFive = featureFive;
-            this.Description = description;
-            this.ImageOne = imageOne;
-            this.ImageTwo = imageTwo;
-            this.ImageThree = imageThree;
-            this.ImageFour = imageFour;
-            this.ImageFive = imageFive;
-            this.ImageSix = imageSix;
+            get
+            {
+                return this.costPerHour;
+            }
+            set
+            {
+                if (this.costPerHour != value)
+                {
+                    this.costPerHour = value;
+                    OnPropertyChanged(nameof(CostPerHour));
+                }
+            }
         }
     }
 }

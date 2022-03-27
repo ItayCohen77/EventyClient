@@ -13,9 +13,9 @@ namespace EventyApp.Views.HostEstateView
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LocationHEView : ContentPage
     {
-        public LocationHEView()
+        public LocationHEView(string typePlace, string featureOne, string featureTwo, string featureThree, string featureFour, string featureFive, string description, string imageOne, string imageTwo, string imageThree, string imageFour, string imageFive, string imageSix)
         {
-            LocationHEViewModel LocationHE = new LocationHEViewModel();
+            LocationHEViewModel LocationHE = new LocationHEViewModel(typePlace, featureOne, featureTwo, featureThree, featureFour, featureFive, description, imageOne, imageTwo, imageThree, imageFour, imageFive, imageSix);
             this.BindingContext = LocationHE;
             LocationHE.Push += (p) => Navigation.PushAsync(p);
             InitializeComponent();

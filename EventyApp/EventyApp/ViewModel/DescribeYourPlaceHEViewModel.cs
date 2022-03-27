@@ -39,84 +39,101 @@ namespace EventyApp.ViewModel
             }
         }
 
-        #region Options
-        private string optionOne, optionTwo, optionThree, optionFour, optionFive;
-        public string OptionOne
+        private string description;
+        public string Description
         {
             get
             {
-                return this.optionOne;
+                return this.description;
             }
             set
             {
-                if (this.optionOne != value)
+                if (this.description != value)
                 {
-                    this.optionOne = value;
-                    OnPropertyChanged(nameof(OptionOne));
+                    this.description = value;
+                    OnPropertyChanged(nameof(Description));
                 }
             }
         }
 
-        public string OptionTwo
+        #region Features
+        private string featureOne, featureTwo, featureThree, featureFour, featureFive;
+        public string FeatureOne
         {
             get
             {
-                return this.optionTwo;
+                return this.featureOne;
             }
             set
             {
-                if (this.optionTwo != value)
+                if (this.featureOne != value)
                 {
-                    this.optionTwo = value;
-                    OnPropertyChanged(nameof(OptionTwo));
+                    this.featureOne = value;
+                    OnPropertyChanged(nameof(FeatureOne));
                 }
             }
         }
 
-        public string OptionThree
+        public string FeatureTwo
         {
             get
             {
-                return this.optionThree;
+                return this.featureTwo;
             }
             set
             {
-                if (this.optionThree != value)
+                if (this.featureTwo != value)
                 {
-                    this.optionThree = value;
-                    OnPropertyChanged(nameof(OptionThree));
+                    this.featureTwo = value;
+                    OnPropertyChanged(nameof(FeatureTwo));
                 }
             }
         }
 
-        public string OptionFour
+        public string FeatureThree
         {
             get
             {
-                return this.optionFour;
+                return this.featureThree;
             }
             set
             {
-                if (this.optionFour != value)
+                if (this.featureThree != value)
                 {
-                    this.optionFour = value;
-                    OnPropertyChanged(nameof(OptionFour));
+                    this.featureThree = value;
+                    OnPropertyChanged(nameof(FeatureThree));
                 }
             }
         }
 
-        public string OptionFive
+        public string FeatureFour
         {
             get
             {
-                return this.optionFive;
+                return this.featureFour;
             }
             set
             {
-                if (this.optionFive != value)
+                if (this.featureFour != value)
                 {
-                    this.optionFive = value;
-                    OnPropertyChanged(nameof(OptionFive));
+                    this.featureFour = value;
+                    OnPropertyChanged(nameof(FeatureFour));
+                }
+            }
+        }
+
+        public string FeatureFive
+        {
+            get
+            {
+                return this.featureFive;
+            }
+            set
+            {
+                if (this.featureFive != value)
+                {
+                    this.featureFive = value;
+                    OnPropertyChanged(nameof(FeatureFive));
                 }
             }
         }
@@ -194,7 +211,7 @@ namespace EventyApp.ViewModel
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.UploadPicsHEView());
+            Push?.Invoke(new EventyApp.Views.HostEstateView.UploadPicsHEView(this.TypePlace, this.FeatureOne, this.FeatureTwo, this.FeatureThree, this.FeatureFour, this.FeatureFive, this.Description));
         }
 
         public DescribeYourPlaceHEViewModel(string typePlace)
@@ -231,35 +248,35 @@ namespace EventyApp.ViewModel
 
             if(this.TypePlace == "Apartment")
             {
-                this.OptionOne = this.ApartmentF[0];
-                this.OptionTwo = this.ApartmentF[1];
-                this.OptionThree = this.ApartmentF[2];
-                this.OptionFour = this.ApartmentF[3];
-                this.OptionFive = this.ApartmentF[4];
+                this.FeatureOne = this.ApartmentF[0];
+                this.FeatureTwo = this.ApartmentF[1];
+                this.FeatureThree = this.ApartmentF[2];
+                this.FeatureFour = this.ApartmentF[3];
+                this.FeatureFive = this.ApartmentF[4];
             }
-            else if(this.TypePlace == "HB")
+            else if(this.TypePlace == "House backyard")
             {
-                this.OptionOne = this.YardF[0];
-                this.OptionTwo = this.YardF[1];
-                this.OptionThree = this.YardF[2];
-                this.OptionFour = this.YardF[3];
-                this.OptionFive = this.YardF[4];
+                this.FeatureOne = this.YardF[0];
+                this.FeatureTwo = this.YardF[1];
+                this.FeatureThree = this.YardF[2];
+                this.FeatureFour = this.YardF[3];
+                this.FeatureFive = this.YardF[4];
             }
-            else if(this.TypePlace == "PH")
+            else if(this.TypePlace == "Private house")
             {
-                this.OptionOne = this.PrivateHF[0];
-                this.OptionTwo = this.PrivateHF[1];
-                this.OptionThree = this.PrivateHF[2];
-                this.OptionFour = this.PrivateHF[3];
-                this.OptionFive = this.PrivateHF[4];
+                this.FeatureOne = this.PrivateHF[0];
+                this.FeatureTwo = this.PrivateHF[1];
+                this.FeatureThree = this.PrivateHF[2];
+                this.FeatureFour = this.PrivateHF[3];
+                this.FeatureFive = this.PrivateHF[4];
             }
             else
             {
-                this.OptionOne = this.HallF[0];
-                this.OptionTwo = this.HallF[1];
-                this.OptionThree = this.HallF[2];
-                this.OptionFour = this.HallF[3];
-                this.OptionFive = this.HallF[4];
+                this.FeatureOne = this.HallF[0];
+                this.FeatureTwo = this.HallF[1];
+                this.FeatureThree = this.HallF[2];
+                this.FeatureFour = this.HallF[3];
+                this.FeatureFive = this.HallF[4];
             }
         }
     }

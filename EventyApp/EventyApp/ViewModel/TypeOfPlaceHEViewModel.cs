@@ -305,15 +305,15 @@ namespace EventyApp.ViewModel
             }
             else if(this.ChangeBorderColorHB == "#FF5353")
             {
-                this.TypePlace = "HB";
+                this.TypePlace = "House backyard";
             }
             else if(this.changeBorderColorH == "#FF5353")
             {
-                this.TypePlace = "H";
+                this.TypePlace = "Hall";
             }
             else
             {
-                this.TypePlace = "PH";
+                this.TypePlace = "Private house";
             }
 
             Push?.Invoke(new EventyApp.Views.HostEstateView.DescribeYourPlaceHEView(this.TypePlace));

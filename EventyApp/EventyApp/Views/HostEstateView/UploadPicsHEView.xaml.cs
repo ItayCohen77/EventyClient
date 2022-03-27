@@ -13,24 +13,12 @@ namespace EventyApp.Views.HostEstateView
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UploadPicsHEView : ContentPage
     {
-        public UploadPicsHEView()
+        public UploadPicsHEView(string typePlace, string featureOne, string featureTwo, string featureThree, string featureFour, string featureFive, string description)
         {
-            UploadPicsHEViewModel upload = new UploadPicsHEViewModel();
+            UploadPicsHEViewModel upload = new UploadPicsHEViewModel(typePlace, featureOne, featureTwo, featureThree, featureFour, featureFive, description);
             this.BindingContext = upload;
-            upload.SetImageSourceEvent += OnSetImageSource;
             upload.Push += (p) => Navigation.PushAsync(p);
             InitializeComponent();
-            //itemImage.Source = ((Item)item).ImgSource;
-        }
-
-        private void ToPopUp(object sender, EventArgs e)
-        {
-            //Navigation.ShowPopup(new PopUpAddImage(this.BindingContext));
-        }
-
-        public void OnSetImageSource(ImageSource imgSource)
-        {
-            //itemImage.Source = imgSource;
         }
     }
 }
