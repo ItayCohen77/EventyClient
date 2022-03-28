@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:EventyApp;assembly=EventyApp"
+             xmlns:viewmodels="clr-namespace:EventyApp.ViewModel"
+             x:DataType="viewmodels:DescribeYourPlaceHEViewModel"
              x:Class="EventyApp.Views.HostEstateView.DescribeYourPlaceHEView"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
@@ -25,7 +27,7 @@
                         </Frame>
                         <Label Margin="0,10" Text="Select features that are present in your place" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
+                            <CheckBox HorizontalOptions="Start" IsChecked="{Binding FeatureOneBool}" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="StartAndExpand" Text="{Binding FeatureOne}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
                             <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="Start" Text="{Binding FeatureTwo}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />

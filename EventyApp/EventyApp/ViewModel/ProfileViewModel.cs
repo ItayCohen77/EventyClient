@@ -164,8 +164,12 @@ namespace EventyApp.ViewModel
         public ICommand LogOutCommand => new Command(LogOut);
         private void LogOut()
         {
-            ((App)App.Current).CurrentUser = null;
-            Push?.Invoke(new TabControlView());
+            //bool success = await proxy.Logout();
+            //if (success)
+            //{
+                ((App)App.Current).CurrentUser = null;
+                Push?.Invoke(new TabControlView());
+            //}
         }
 
         public ICommand SignUpCommand => new Command(SignUp);

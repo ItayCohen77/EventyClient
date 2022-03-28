@@ -39,6 +39,21 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private bool featureOneBool;
+
+        public bool FeatureOneBool
+        {
+            get => featureOneBool;
+            set
+            {
+                if(value!=featureOneBool)
+                {
+                    featureOneBool = value;
+                    OnPropertyChanged("FeatureOneBool");
+                }
+            }
+
+        }
         private string description;
         public string Description
         {

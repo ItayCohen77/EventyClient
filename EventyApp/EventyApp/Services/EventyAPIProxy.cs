@@ -302,6 +302,19 @@ namespace EventyApp.Services
             }
         }
 
+        //public async Task<bool> Logout()
+        //{
+        //    try
+        //    {
+        //        HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/logout");
+        //        return response.IsSuccessStatusCode;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
+
         public async Task<bool> UploadImage(string fullPath, string targetFileName)
         {
             try
