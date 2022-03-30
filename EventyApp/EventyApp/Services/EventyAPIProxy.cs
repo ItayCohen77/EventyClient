@@ -338,5 +338,29 @@ namespace EventyApp.Services
                 return false;
             }
         }
+
+        public async Task<List<Place>> GetPlaces()
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/getplaces");
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    List<Place> places = JsonConvert.DeserializeObject<List<Place>>(jsonContent);
+
+                    return places;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
     }
 }
