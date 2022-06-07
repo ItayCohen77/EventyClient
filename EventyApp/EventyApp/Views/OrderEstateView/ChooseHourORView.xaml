@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventyApp.Views.OrderEstateView.ChooseHourORView"
+             xmlns:datepicker="clr-namespace:EventyApp.Renderer"
+             xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Frame HeightRequest="120"
+                       WidthRequest="120">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#FF5353" Offset="0.1"/>
+                        <GradientStop Color="#FFAF7B" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Margin="0,57" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Lets start with some information about your event"/>
+            </Frame>
+
+            <StackLayout Spacing="-5">
+                <ScrollView Margin="0,0,0,-285">
+                    <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
+                        <StackLayout>
+                            <Label Margin="0,20" Text="Choose the hour you want for your event" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+                            <StackLayout Margin="0,14" Orientation="Horizontal">
+                                <Label Margin="0,20" Text="From: " FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                                <TimePicker Time="{Binding StartTime}"/>
+                                <Label Margin="0,20" Text="-" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Margin="0,20" Text="Until: " FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                                <TimePicker Time="{Binding EndTime}"/>
+                            </StackLayout>
+                            <StackLayout Margin="0,25" Orientation="Horizontal">
+                                <Label Margin="0,20" Text="Total: " FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Margin="0,20" Text="{Binding TotalHours}" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Margin="0,20" Text="Hours" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+                            </StackLayout>
+                            <Label IsVisible="{Binding ShowtotalHoursError}" HorizontalOptions="Center" Style="{StaticResource labelStyle}" TextColor="Red" FontSize="15" FontAttributes="Bold" Text="{Binding TotalhoursError}"/>
+
+                            <BoxView Margin="-20, 125, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                            <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Next" Command="{Binding NextCommand}" BackgroundColor="#FF5353" TextColor="White" FontAttributes="Bold" FontSize="16"/>
+                        </StackLayout>
+                    </Frame>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

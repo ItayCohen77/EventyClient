@@ -41,7 +41,7 @@
                 <views:ExploreView />
                 <views:WishlistsView />
                 <views:EventsView />
-                <views:InboxView />
+                <views:UserEstatesView />
                 <views:ProfileView />
 
             </tabs:ViewSwitcher>

@@ -28,9 +28,9 @@ namespace EventyApp.Droid.Renderer
             base.OnElementChanged(e);
             if (Control != null)
             {
-                Control.Text = "Select birthdate";
+                Control.Text = "Select date";
                 this.Control.SetBackground(null);
-                this.Control.SetTextColor(Android.Graphics.Color.LightGray);
+                this.Control.SetTextColor(Android.Graphics.Color.Black);
             }
         }
     }

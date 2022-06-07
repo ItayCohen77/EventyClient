@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using EventyApp.ViewModel;
 
 namespace EventyApp.Views
 {
@@ -15,6 +16,9 @@ namespace EventyApp.Views
         public ExploreView()
         {
             InitializeComponent();
+            ExploreViewModel explore = new ExploreViewModel();
+            this.BindingContext = explore;
+            explore.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

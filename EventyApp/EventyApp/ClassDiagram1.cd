@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="EventyApp.Models.Apartment">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAACAAAAAgAAAAAAAAQAgAAAAAhAA=</HashCode>
+      <FileName>Models\Apartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventyApp.Models.City" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQIAEAAAgAAAAAAEAACAAACAAAAAACAAAAAAAQAAA=</HashCode>
+      <FileName>Models\City.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventyApp.Models.FileInfo" Collapsed="true">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FileInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventyApp.Models.Hall">
+    <Position X="0.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAAAAACAAAAAEAIAAAAAAAAAAAAAAAAAAAhAA=</HashCode>
+      <FileName>Models\Hall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventyApp.Models.HouseBackyard">
+    <Position X="1.75" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAACAAAAAAAIAAAAAAAAAAAACAAAAAABCA=</HashCode>
+      <FileName>Models\HouseBackyard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventyApp.Models.LikedPlace">
+    <Position X="15" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Models\LikedPlace.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EventyApp.Models.Order">
+    <Position X="8.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAQAACAAAACAAAAgAoAAgQAAAAEAAAABABAA=</HashCode>
+      <FileName>Models\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Place" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EventyApp.Models.Place">
+    <Position X="7.75" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAGCQCCIAQEACAAMACBACAAAAAIggAAIgAAQQAAAQAA=</HashCode>
+      <FileName>Models\Place.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+      <Property Name="PlaceTypeNavigation" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+      <Property Name="PlaceMedia" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EventyApp.Models.PlaceMedium">
+    <Position X="4.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAQAAAAAAAAAAAAAAAAIAEBAAAAABAA=</HashCode>
+      <FileName>Models\PlaceMedium.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Place" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EventyApp.Models.PlaceObj">
+    <Position X="4" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAABAAAAAAAAAAACAAAAAAAAEAAAABAA=</HashCode>
+      <FileName>Models\PlaceObj.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="apartmentObj" />
+      <Property Name="hallObj" />
+      <Property Name="houseBackyardObj" />
+      <Property Name="placeObj" />
+      <Property Name="privateHouseObj" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EventyApp.Models.PlaceType">
+    <Position X="4" Y="10.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\PlaceType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Places" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EventyApp.Models.PrivateHouse">
+    <Position X="3.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAACAAAAAgAAAAAAAAQAgAAAAAhAA=</HashCode>
+      <FileName>Models\PrivateHouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventyApp.Models.User">
+    <Position X="11" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAECAEAAACQACAACACAAQAQACAAAAAAAAEAAAgAAAAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="LikedPlaces" />
+      <Property Name="Orders" />
+      <Property Name="Places" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

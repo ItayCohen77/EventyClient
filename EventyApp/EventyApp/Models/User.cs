@@ -3,16 +3,13 @@ using System.Collections.Generic;
 
 namespace EventyApp.Models
 {
-    public partial class User
+    public class User
     {
         public User()
         {
-            ChatBuyers = new List<Chat>();
-            ChatSellers = new List<Chat>();
             Orders = new List<Order>();
             Places = new List<Place>();
-            Receipts = new List<Receipt>();
-            UserAuthTokens = new List<UserAuthToken>();
+            LikedPlaces = new List<LikedPlace>();
         }
     
         public int Id { get; set; }
@@ -27,12 +24,8 @@ namespace EventyApp.Models
         public string PhoneNumber { get; set; }
         public bool IsAdmin { get; set; }
         public string ProfileImage { get; set; }
-
-        public virtual List<Chat> ChatBuyers { get; set; }
-        public virtual List<Chat> ChatSellers { get; set; }       
         public virtual List<Order> Orders { get; set; }        
         public virtual List<Place> Places { get; set; }       
-        public virtual List<Receipt> Receipts { get; set; }        
-        public virtual List<UserAuthToken> UserAuthTokens { get; set; }
+        public virtual List<LikedPlace> LikedPlaces { get; set; }
     }
 }

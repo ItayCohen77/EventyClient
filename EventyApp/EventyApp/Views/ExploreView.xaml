@@ -2,24 +2,83 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EventyApp.Views.ExploreView"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              NavigationPage.HasNavigationBar="False">
     <ContentView.Content>
         <ScrollView>
+            <StackLayout>
             <Grid BackgroundColor="White">
                 <Image Source="BackgroundImage4.jpg"  VerticalOptions="Start"/>
-                <StackLayout Spacing="-5">
-                    <Frame Margin="20,20,20,5" CornerRadius="50" BackgroundColor="White" HeightRequest="42" WidthRequest="20" Padding="0">
-                        <SearchBar SearchCommand="{Binding SearchCommand}" Placeholder="Let's start your event" BackgroundColor="White" TextColor="Black" FontSize="16" FontAttributes="Bold" HeightRequest="15" WidthRequest="20"/>
-                    </Frame>
+
+                <StackLayout Spacing="-5" Margin="0,80">
                     <Image Margin="10" Source="Srearch.png" HeightRequest="10" WidthRequest="10"/>
                     <Label Margin="10,0" Text="The" Style="{StaticResource labelStyle}" TextColor="White" FontAttributes="Bold" FontSize="40"/>
                     <Label Margin="10,0" Text="Greatest" Style="{StaticResource labelStyle}" TextColor="White" FontAttributes="Bold" FontSize="40"/>
                     <Label Margin="10,0" Text="Moments" Style="{StaticResource labelStyle}" TextColor="White" FontAttributes="Bold" FontSize="40"/>
                     <Button Margin="10,15,290,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Get inspired" Command="{Binding InspiredCommand}" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
                     <Label Margin="10,20,0,0" Text="Dreams come true with eventy" TextColor="White" FontSize="14" FontAttributes="Bold"/>
-                    <Label Margin="10,180,0,0" Text="Explore nearby" TextColor="Black" FontSize="24" FontAttributes="Bold"/>
+                    <Label Margin="10,140,0,0" Text="Explore nearby" TextColor="Black" FontSize="24" FontAttributes="Bold"/>
                 </StackLayout>
+                <Frame Margin="20,20,20,5" VerticalOptions="Start" CornerRadius="{Binding Radius}" BackgroundColor="White" HeightRequest="{Binding Height}" WidthRequest="20" Padding="0">
+                    <StackLayout>
+                        <SearchBar Margin="12" SearchCommand="{Binding SearchCommand}" Text="{Binding City}" Placeholder="Let's start your event" BackgroundColor="White" TextColor="Black" FontSize="16" FontAttributes="Bold" HeightRequest="15" WidthRequest="20"/>
+                        <CollectionView Margin="20" EmptyView="Have not found cities" x:Name="cities" ItemsSource="{Binding FilteredCities}" SelectedItem="{Binding SelectedCityItem}" SelectionMode="Single"
+                                   IsVisible="{Binding ShowCities}" SelectionChangedCommand="{Binding Source={x:Reference cities}, Path=BindingContext.SelectedCity}" SelectionChangedCommandParameter="{Binding Source={x:Reference cities}, Path=SelectedItem}"/>
+                    </StackLayout>
+                </Frame>
             </Grid>
+                <StackLayout Margin="0,62,0,-120" Spacing="-5">
+                    <Frame Margin="0,-150,0,-10" HeightRequest="830" Padding="20,0" BackgroundColor="white" CornerRadius="15">
+                    <StackLayout>
+                        <CollectionView x:Name="foundplacesCollectionView" ItemsSource="{Binding FoundPlaces}" Margin="0,15,0,0" SelectionMode="Single">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <RelativeLayout Padding="10">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup Name="CommonStates">
+                                                <VisualState Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+
+                                        <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="100" WidthRequest="320" BorderColor="gray">
+                                            <StackLayout>
+                                                <Image Margin="-25,-7" Source="{Binding PlaceImage1}" HeightRequest="120" WidthRequest="120" HorizontalOptions="End"/>
+                                                <StackLayout Margin="7,-117,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="Place type:  " FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding PlaceTypeNavigation.TypeName}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="18" FontAttributes="Bold" />
+                                                </StackLayout>
+                                                <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="City:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding City}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                </StackLayout>
+                                                <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="Address:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding PlaceAddress}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                </StackLayout>
+                                                <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="Price:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding Price}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                    <Label Margin="-4,0" Text="$" FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="  (Per hour)" FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference foundplacesCollectionView}, Path=BindingContext.PlaceCommand}" CommandParameter="{Binding}"/>
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+                                    </RelativeLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            </StackLayout>
         </ScrollView>
     </ContentView.Content>
 </ContentView>

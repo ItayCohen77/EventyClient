@@ -20,6 +20,7 @@
             </Frame>
             
             <StackLayout Spacing="-5">
+                <ScrollView Margin="0,0,0,-285">
                 <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                     <StackLayout>
                         <Frame BorderColor="LightGray" CornerRadius="7" HeightRequest="200">
@@ -29,23 +30,24 @@
                         <StackLayout Orientation="Horizontal">
                             <CheckBox HorizontalOptions="Start" IsChecked="{Binding FeatureOneBool}" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="StartAndExpand" Text="{Binding FeatureOne}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
-                            <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
+                            <CheckBox HorizontalOptions="Start" IsChecked="{Binding FeatureTwoBool}" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="Start" Text="{Binding FeatureTwo}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
+                            <CheckBox HorizontalOptions="Start" IsChecked="{Binding FeatureThreeBool}" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="StartAndExpand" Text="{Binding FeatureThree}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
-                            <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
+                            <CheckBox HorizontalOptions="Start" IsChecked="{Binding FeatureFourBool}" Color="#FF5353" VerticalOptions="Center" />
                             <Label HorizontalOptions="Start" Text="{Binding FeatureFour}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox HorizontalOptions="Start" Color="#FF5353" VerticalOptions="Center" />
+                            <CheckBox HorizontalOptions="Start" IsChecked="{Binding FeatureFiveBool}" Color="#FF5353" VerticalOptions="Center" />
                             <Label Text="{Binding FeatureFive}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
                         </StackLayout>
                         <BoxView Margin="-20, 40, -20, 0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
                         <Button Margin="270,2,-10,0" HeightRequest="40" WidthRequest="30" CornerRadius="5" Text="Next" Command="{Binding NextCommand}" BackgroundColor="#FF5353" TextColor="White" FontAttributes="Bold" FontSize="16"/>
                     </StackLayout>
                 </Frame>
+                </ScrollView>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

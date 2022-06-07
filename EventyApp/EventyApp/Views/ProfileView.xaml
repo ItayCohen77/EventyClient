@@ -139,7 +139,7 @@
                             <FormattedString>
                                     <Span Text="Personal information">
                                     <Span.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding PersonalInfoCommand}"/>
+                                            <TapGestureRecognizer Command="{Binding EditCommand}"/>
                                     </Span.GestureRecognizers>
                                 </Span>
                             </FormattedString>

@@ -8,6 +8,9 @@ using Xamarin.Forms;
 using EventyApp.Views;
 using EventyApp.Services;
 using EventyApp.Models;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using System.Linq;
 
 namespace EventyApp.ViewModel
 {
@@ -57,83 +60,83 @@ namespace EventyApp.ViewModel
         }
 
         #region Features
-        private string featureOne, featureTwo, featureThree, featureFour, featureFive;
-        public string FeatureOne
+        private bool featureOneBool, featureTwoBool, featureThreeBool, featureFourBool, featureFiveBool;
+        public bool FeatureOneBool
         {
             get
             {
-                return this.featureOne;
+                return this.featureOneBool;
             }
             set
             {
-                if (this.featureOne != value)
+                if (this.featureOneBool != value)
                 {
-                    this.featureOne = value;
-                    OnPropertyChanged(nameof(FeatureOne));
+                    this.featureOneBool = value;
+                    OnPropertyChanged(nameof(FeatureOneBool));
                 }
             }
         }
 
-        public string FeatureTwo
+        public bool FeatureTwoBool
         {
             get
             {
-                return this.featureTwo;
+                return this.featureTwoBool;
             }
             set
             {
-                if (this.featureTwo != value)
+                if (this.featureTwoBool != value)
                 {
-                    this.featureTwo = value;
-                    OnPropertyChanged(nameof(FeatureTwo));
+                    this.featureTwoBool = value;
+                    OnPropertyChanged(nameof(FeatureTwoBool));
                 }
             }
         }
 
-        public string FeatureThree
+        public bool FeatureThreeBool
         {
             get
             {
-                return this.featureThree;
+                return this.featureThreeBool;
             }
             set
             {
-                if (this.featureThree != value)
+                if (this.featureThreeBool != value)
                 {
-                    this.featureThree = value;
-                    OnPropertyChanged(nameof(FeatureThree));
+                    this.featureThreeBool = value;
+                    OnPropertyChanged(nameof(FeatureThreeBool));
                 }
             }
         }
 
-        public string FeatureFour
+        public bool FeatureFourBool
         {
             get
             {
-                return this.featureFour;
+                return this.featureFourBool;
             }
             set
             {
-                if (this.featureFour != value)
+                if (this.featureFourBool != value)
                 {
-                    this.featureFour = value;
-                    OnPropertyChanged(nameof(FeatureFour));
+                    this.featureFourBool = value;
+                    OnPropertyChanged(nameof(FeatureFourBool));
                 }
             }
         }
 
-        public string FeatureFive
+        public bool FeatureFiveBool
         {
             get
             {
-                return this.featureFive;
+                return this.featureFiveBool;
             }
             set
             {
-                if (this.featureFive != value)
+                if (this.featureFiveBool != value)
                 {
-                    this.featureFive = value;
-                    OnPropertyChanged(nameof(FeatureFive));
+                    this.featureFiveBool = value;
+                    OnPropertyChanged(nameof(FeatureFiveBool));
                 }
             }
         }
@@ -141,8 +144,8 @@ namespace EventyApp.ViewModel
         #endregion
 
         #region Images
-        private string imageOne;
-        public string ImageOne
+        private FileResult imageOne;
+        public FileResult ImageOne
         {
             get
             {
@@ -158,8 +161,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageTwo;
-        public string ImageTwo
+        private FileResult imageTwo;
+        public FileResult ImageTwo
         {
             get
             {
@@ -175,8 +178,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageThree;
-        public string ImageThree
+        private FileResult imageThree;
+        public FileResult ImageThree
         {
             get
             {
@@ -192,8 +195,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageFour;
-        public string ImageFour
+        private FileResult imageFour;
+        public FileResult ImageFour
         {
             get
             {
@@ -209,8 +212,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageFive;
-        public string ImageFive
+        private FileResult imageFive;
+        public FileResult ImageFive
         {
             get
             {
@@ -226,8 +229,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageSix;
-        public string ImageSix
+        private FileResult imageSix;
+        public FileResult ImageSix
         {
             get
             {
@@ -332,17 +335,17 @@ namespace EventyApp.ViewModel
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.MaxGuestsHEView(this.TypePlace, this.FeatureOne, this.FeatureTwo, this.FeatureThree, this.FeatureFour, this.FeatureFive, this.Description, this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix, this.Street, this.Apartment, this.City, this.Zip, this.Country));
+            Push?.Invoke(new EventyApp.Views.HostEstateView.MaxGuestsHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description, this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix, this.Street, this.Apartment, this.City, this.Zip, this.Country));
         }
 
-        public LocationHEViewModel(string typePlace, string featureOne, string featureTwo, string featureThree, string featureFour, string featureFive, string description, string imageOne, string imageTwo, string imageThree, string imageFour, string imageFive, string imageSix)
+        public LocationHEViewModel(string typePlace, bool featureOneBool, bool featureTwoBool, bool featureThreeBool, bool featureFourBool, bool featureFiveBool, string description, FileResult imageOne, FileResult imageTwo, FileResult imageThree, FileResult imageFour, FileResult imageFive, FileResult imageSix)
         {
             this.TypePlace = typePlace;
-            this.FeatureOne = featureOne;
-            this.FeatureTwo = featureTwo;
-            this.FeatureThree = featureThree;
-            this.FeatureFour = featureFour;
-            this.FeatureFive = featureFive;
+            this.FeatureOneBool = featureOneBool;
+            this.FeatureTwoBool = featureTwoBool;
+            this.FeatureThreeBool = featureThreeBool;
+            this.FeatureFourBool = featureFourBool;
+            this.FeatureFiveBool = featureFiveBool;
             this.Description = description;
             this.ImageOne = imageOne;
             this.ImageTwo = imageTwo;

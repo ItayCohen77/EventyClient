@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventyApp.Views.OrderEstateView.ChoosePlaceORView"
+             xmlns:datepicker="clr-namespace:EventyApp.Renderer"
+             xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Frame HeightRequest="120"
+                       WidthRequest="120">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#FF5353" Offset="0.1"/>
+                        <GradientStop Color="#FFAF7B" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout>
+                    <Label Margin="0,57" TextColor="White" FontSize="29" FontAttributes="Bold" FontFamily="italic" Text="Results based on your selections"/>
+                    <StackLayout Margin="10,-60,0,0" Orientation="Horizontal">
+                        <Label Margin="-10,0" Text="City selected:  " TextColor="White" FontSize="27" FontAttributes="Bold" FontFamily="italic"/>
+                        <Label Margin="0,0" Text="{Binding City}" HorizontalOptions="Start" TextColor="White" FontSize="27" FontAttributes="Bold" FontFamily="italic" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Margin="0,0,0,-120" Spacing="-5">
+                <ScrollView>
+                <Frame Margin="0,200,0,-10" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
+                        <StackLayout>
+                            <CollectionView x:Name="foundplacesCollectionView" ItemsSource="{Binding FoundPlaces}" Margin="0,15,0,0" SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <RelativeLayout Padding="10">
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+
+                                            <Frame Margin="7" BackgroundColor="white" CornerRadius="15" HeightRequest="100" WidthRequest="320" BorderColor="gray">
+                                                <StackLayout>
+                                                    <Image Margin="-25,-7" Source="{Binding PlaceImage1}" HeightRequest="120" WidthRequest="120" HorizontalOptions="End"/>
+                                                    <StackLayout Margin="7,-117,0,0" Orientation="Horizontal">
+                                                        <Label Margin="-10,0" Text="Place type:  " FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                                                        <Label Margin="0,0" Text="{Binding PlaceTypeNavigation.TypeName}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="18" FontAttributes="Bold" />
+                                                    </StackLayout>
+                                                    <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                        <Label Margin="-10,0" Text="City:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                        <Label Margin="0,0" Text="{Binding City}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                    </StackLayout>
+                                                    <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                        <Label Margin="-10,0" Text="Address:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                        <Label Margin="0,0" Text="{Binding PlaceAddress}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                    </StackLayout>
+                                                    <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                        <Label Margin="-10,0" Text="Price:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                        <Label Margin="0,0" Text="{Binding Price}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                        <Label Margin="-4,0" Text="$" FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                        <Label Margin="0,0" Text="  (Per hour)" FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    </StackLayout>
+                                                                                                       
+                                                </StackLayout>
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference foundplacesCollectionView}, Path=BindingContext.PlaceCommand}" CommandParameter="{Binding}"/>
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                        </RelativeLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Frame>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

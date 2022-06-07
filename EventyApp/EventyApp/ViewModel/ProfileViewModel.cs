@@ -182,6 +182,11 @@ namespace EventyApp.ViewModel
         {
             Push?.Invoke(new EventyApp.Views.HostEstateView.WelcomeHEView());
         }
+        public ICommand EditCommand => new Command(Edit);
+        private void Edit()
+        {
+            Push?.Invoke(new EventyApp.Views.EditUserInfoView());
+        }
 
         public Command ChangePfpCommand => new Command(() => ChangePfp());
         public async void ChangePfp()

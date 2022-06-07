@@ -45,6 +45,7 @@ namespace EventyApp.ViewModel
                 }
                 else
                 {
+                    this.ShowGeneralError = true;
                     GeneralError = "Unknown error occurred. Please try again later";
                 }
 

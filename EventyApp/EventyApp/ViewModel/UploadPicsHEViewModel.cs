@@ -26,6 +26,8 @@ namespace EventyApp.ViewModel
 
         private EventyAPIProxy proxy;
 
+        public event Action<ImageSource,string> SetImageSourceEvent;
+
         private string typePlace;
         public string TypePlace
         {
@@ -61,83 +63,83 @@ namespace EventyApp.ViewModel
         }
 
         #region Features
-        private string featureOne, featureTwo, featureThree, featureFour, featureFive;
-        public string FeatureOne
+        private bool featureOneBool, featureTwoBool, featureThreeBool, featureFourBool, featureFiveBool;
+        public bool FeatureOneBool
         {
             get
             {
-                return this.featureOne;
+                return this.featureOneBool;
             }
             set
             {
-                if (this.featureOne != value)
+                if (this.featureOneBool != value)
                 {
-                    this.featureOne = value;
-                    OnPropertyChanged(nameof(FeatureOne));
+                    this.featureOneBool = value;
+                    OnPropertyChanged(nameof(FeatureOneBool));
                 }
             }
         }
 
-        public string FeatureTwo
+        public bool FeatureTwoBool
         {
             get
             {
-                return this.featureTwo;
+                return this.featureTwoBool;
             }
             set
             {
-                if (this.featureTwo != value)
+                if (this.featureTwoBool != value)
                 {
-                    this.featureTwo = value;
-                    OnPropertyChanged(nameof(FeatureTwo));
+                    this.featureTwoBool = value;
+                    OnPropertyChanged(nameof(FeatureTwoBool));
                 }
             }
         }
 
-        public string FeatureThree
+        public bool FeatureThreeBool
         {
             get
             {
-                return this.featureThree;
+                return this.featureThreeBool;
             }
             set
             {
-                if (this.featureThree != value)
+                if (this.featureThreeBool != value)
                 {
-                    this.featureThree = value;
-                    OnPropertyChanged(nameof(FeatureThree));
+                    this.featureThreeBool = value;
+                    OnPropertyChanged(nameof(FeatureThreeBool));
                 }
             }
         }
 
-        public string FeatureFour
+        public bool FeatureFourBool
         {
             get
             {
-                return this.featureFour;
+                return this.featureFourBool;
             }
             set
             {
-                if (this.featureFour != value)
+                if (this.featureFourBool != value)
                 {
-                    this.featureFour = value;
-                    OnPropertyChanged(nameof(FeatureFour));
+                    this.featureFourBool = value;
+                    OnPropertyChanged(nameof(FeatureFourBool));
                 }
             }
         }
 
-        public string FeatureFive
+        public bool FeatureFiveBool
         {
             get
             {
-                return this.featureFive;
+                return this.featureFiveBool;
             }
             set
             {
-                if (this.featureFive != value)
+                if (this.featureFiveBool != value)
                 {
-                    this.featureFive = value;
-                    OnPropertyChanged(nameof(FeatureFive));
+                    this.featureFiveBool = value;
+                    OnPropertyChanged(nameof(FeatureFiveBool));
                 }
             }
         }
@@ -145,8 +147,8 @@ namespace EventyApp.ViewModel
         #endregion
 
         #region Images
-        private string imageOne;
-        public string ImageOne
+        private FileResult imageOne;
+        public FileResult ImageOne
         {
             get
             {
@@ -162,8 +164,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageTwo;
-        public string ImageTwo
+        private FileResult imageTwo;
+        public FileResult ImageTwo
         {
             get
             {
@@ -179,8 +181,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageThree;
-        public string ImageThree
+        private FileResult imageThree;
+        public FileResult ImageThree
         {
             get
             {
@@ -196,8 +198,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageFour;
-        public string ImageFour
+        private FileResult imageFour;
+        public FileResult ImageFour
         {
             get
             {
@@ -213,8 +215,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageFive;
-        public string ImageFive
+        private FileResult imageFive;
+        public FileResult ImageFive
         {
             get
             {
@@ -230,8 +232,8 @@ namespace EventyApp.ViewModel
             }
         }
 
-        private string imageSix;
-        public string ImageSix
+        private FileResult imageSix;
+        public FileResult ImageSix
         {
             get
             {
@@ -251,11 +253,11 @@ namespace EventyApp.ViewModel
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.LocationHEView(this.TypePlace, this.FeatureOne, this.FeatureTwo, this.FeatureThree, this.FeatureFour, this.FeatureFive, this.Description ,this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix));
+            Push?.Invoke(new EventyApp.Views.HostEstateView.LocationHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description ,this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix));
         }
 
-        public Command UploadCommand => new Command(() => Upload());
-        public async void Upload()
+        public Command UploadCommand => new Command<string>((n) => Upload(n));
+        public async void Upload(string num)
         {
             if (MediaPicker.IsCaptureSupported)
             {
@@ -264,18 +266,36 @@ namespace EventyApp.ViewModel
                     Title = "Pick a profile picture"
                 });
 
-                //if (result != null)
-                //{
-                //    this.imageFileResult = result;
+                if (result != null)
+                {
+                    switch(num)
+                    {
+                        case "1":
+                            this.ImageOne = result;
+                            break;
+                        case "2":
+                            this.ImageTwo = result;
+                            break;
+                        case "3":
+                            this.ImageThree = result;
+                            break;
+                        case "4":
+                            this.ImageFour = result;
+                            break;
+                        case "5":
+                            this.ImageFive = result;
+                            break;
+                        case "6":
+                            this.ImageSix = result;
+                            break;
+                    }                 
 
-                //    var stream = await result.OpenReadAsync();
-                //    ImageSource imgSource = ImageSource.FromStream(() => stream);
-                //    if (SetImageSourceEvent != null)
-                //        SetImageSourceEvent(imgSource);
-                //    bool uploadImageSuccess = await proxy.UploadImage(imageFileResult.FullPath, $"p{Place.Id}.jpg");
-                //    if (uploadImageSuccess)
-                //        User.ProfileImage = $"a{User.Id}.jpg";
-                //}
+                    var stream = await result.OpenReadAsync();
+                    ImageSource imgSource = ImageSource.FromStream(() => stream);
+
+                    if (SetImageSourceEvent != null)
+                        SetImageSourceEvent(imgSource, num);                 
+                }
             }
             else
             {
@@ -283,21 +303,15 @@ namespace EventyApp.ViewModel
             }
         }
 
-        public UploadPicsHEViewModel(string typePlace, string featureOne, string featureTwo, string featureThree, string featureFour, string featureFive, string description)
+        public UploadPicsHEViewModel(string typePlace, bool featureOneBool, bool featureTwoBool, bool featureThreeBool, bool featureFourBool, bool featureFiveBool, string description)
         {
             this.TypePlace = typePlace;
-            this.FeatureOne = featureOne;
-            this.FeatureTwo = featureTwo;
-            this.FeatureThree = featureThree;
-            this.FeatureFour = featureFour;
-            this.FeatureFive = featureFive;
+            this.FeatureOneBool = featureOneBool;
+            this.FeatureTwoBool = featureTwoBool;
+            this.FeatureThreeBool = featureThreeBool;
+            this.FeatureFourBool = featureFourBool;
+            this.FeatureFiveBool = featureFiveBool;
             this.Description = description;
-            this.ImageOne = "default_pl.jpg";
-            this.ImageTwo = "default_pl.jpg";
-            this.ImageThree = "default_pl.jpg";
-            this.ImageFour = "default_pl.jpg";
-            this.ImageFive = "default_pl.jpg";
-            this.ImageSix = "default_pl.jpg";
         }
     }
 }

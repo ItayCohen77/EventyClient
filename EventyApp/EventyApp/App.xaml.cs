@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using EventyApp.Views;
@@ -46,6 +47,7 @@ namespace EventyApp
 
         protected override void OnStart()
         {
+            
         }
 
         protected override void OnSleep()

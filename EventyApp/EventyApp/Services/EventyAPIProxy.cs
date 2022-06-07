@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.IO;
 using Newtonsoft.Json;
+using EventyApp.Renderer;
 
 namespace EventyApp.Services
 {
@@ -172,77 +173,88 @@ namespace EventyApp.Services
             }
         }
 
-        public async Task<Place> UploadPlace(string typePlace, string featureOne, string featureTwo, string featureThree, string featureFour, string featureFive, string description, string imageOne, string imageTwo, string imageThree, string imageFour, string imageFive, string imageSix, string street, string apartment, string city, string zip, string country, int maxPeople, int costPerHour)
+        public async Task<Place> UploadPlace(string typePlace, bool featureOneBool, bool featureTwoBool, bool featureThreeBool, bool featureFourBool, bool featureFiveBool, string description, FileResult imageOne, FileResult imageTwo, FileResult imageThree, FileResult imageFour, FileResult imageFive, FileResult imageSix, string street, string apartment, string city, string zip, string country, int maxPeople, int costPerHour)
         {
             try
             {
+                PlaceObj obj = new PlaceObj();
                 User user = ((App)App.Current).CurrentUser;
                 int typePlacedummy = -1;
                 if(typePlace == "Apartment")
                 {
                     Apartment a = new Apartment()
                     {
-                        HasSpeakerAndMic = false,
-                        HasAirConditioner = false,
-                        HasCoffeeMachine = false,
-                        HasTv = false,
-                        HasWaterHeater = false
+                        HasSpeakerAndMic = featureFiveBool,
+                        HasAirConditioner = featureTwoBool,
+                        HasCoffeeMachine = featureThreeBool,
+                        HasTv = featureOneBool,
+                        HasWaterHeater = featureFourBool
                     };
 
                     typePlacedummy = 1;
+                    obj.apartmentObj = a;
                 }
                 else if(typePlace == "Hall")
                 {
                     Hall h = new Hall()
                     {
-                        HasSpeakerAndMic = false,
-                        HasBar = false,
-                        HasChairs = false,
-                        HasProjector = false,
-                        HasTables = false
+                        HasSpeakerAndMic = featureThreeBool,
+                        HasBar = featureFiveBool,
+                        HasChairs = featureTwoBool,
+                        HasProjector = featureFourBool,
+                        HasTables = featureOneBool
                     };
 
                     typePlacedummy = 2;
+                    obj.hallObj = h;
                 }
                 else if (typePlace == "Private house")
                 {
                     PrivateHouse ph = new PrivateHouse()
                     {
-                        HasSpeakerAndMic = false,
-                        HasAirConditioner = false,
-                        HasCoffeeMachine = false,
-                        HasTv = false,
-                        HasWaterHeater = false
+                        HasSpeakerAndMic = featureFiveBool,
+                        HasAirConditioner = featureTwoBool,
+                        HasCoffeeMachine = featureThreeBool,
+                        HasTv = featureOneBool,
+                        HasWaterHeater = featureFourBool
                     };
 
+                    apartment = "0";
                     typePlacedummy = 3;
+                    obj.privateHouseObj = ph;
                 }
                 else
                 {
                     HouseBackyard hb = new HouseBackyard()
                     {
-                        HasBbq = false,
-                        HasHotub = false,
-                        HasChairs = false,
-                        HasPool = false,
-                        HasTables = false
+                        HasBbq = featureTwoBool,
+                        HasHotub = featureFiveBool,
+                        HasChairs = featureFourBool,
+                        HasPool = featureOneBool,
+                        HasTables = featureThreeBool
                     };
 
                     typePlacedummy = 4;
+                    obj.houseBackyardObj = hb;
                 }
 
+                if(apartment == null)
+                {
+                    apartment = "0";
+                }
+                
                 Place place = new Place()
                 {
                     PlaceType = typePlacedummy,
                     OwnerId = user.Id,
                     Price = costPerHour,
                     Summary = description,
-                    PlaceImage1 = imageOne,
-                    PlaceImage2 = imageTwo,
-                    PlaceImage3 = imageThree,
-                    PlaceImage4 = imageFour,
-                    PlaceImage5 = imageFive,
-                    PlaceImage6 = imageSix,
+                    PlaceImage1 = imageOne.FullPath,
+                    PlaceImage2 = imageTwo.FullPath,
+                    PlaceImage3 = imageThree.FullPath,
+                    PlaceImage4 = imageFour.FullPath,
+                    PlaceImage5 = imageFive.FullPath,
+                    PlaceImage6 = imageSix.FullPath,
                     PlaceAddress = street,
                     Apartment = apartment,
                     City = city,
@@ -251,7 +263,9 @@ namespace EventyApp.Services
                     TotalOccupancy = maxPeople
                 };
 
-                string json = JsonConvert.SerializeObject(place);
+                obj.placeObj = place;
+
+                string json = JsonConvert.SerializeObject(obj);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 string url = $"{this.baseUri}/EventyAPI/hostplace";
                 HttpResponseMessage response = await this.client.PostAsync(url, content);
@@ -362,5 +376,290 @@ namespace EventyApp.Services
             }
         }
 
+        public async Task<List<string>> GetCities()
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/il-Cities.json");
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve,
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string content = await response.Content.ReadAsStringAsync();                  
+                    List<City> cities = System.Text.Json.JsonSerializer.Deserialize<List<City>>(content, options);
+
+                    return GetCitiesNameList(cities);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        private List<string> GetCitiesNameList(List<City> cities)
+        {
+            List<string> citiesName = new List<string>();
+
+            foreach (City city in cities)
+            {
+                citiesName.Add(city.city);
+            }
+            citiesName.Remove(citiesName[0]);
+
+            return citiesName;
+        }
+
+        public async Task<List<Place>> GetPlacesByCity(string city)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/getplacesbycity?city={city.ToLower()}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    List<Place> places = JsonConvert.DeserializeObject<List<Place>>(jsonContent);
+
+                    return places;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Place> GetPlaceById(int placeId)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/getplacebyid?placeId={placeId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    Place place = JsonConvert.DeserializeObject<Place>(jsonContent);
+
+                    return place;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public async Task<bool> AddLikedPlace(int placeID)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/addlikedplace?placeID={placeID}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    bool worked = JsonConvert.DeserializeObject<bool>(content);
+                    return worked;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public async Task<bool> RemoveLikedPlace(int placeID)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/removelikedplace?placeID={placeID}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    bool worked = JsonConvert.DeserializeObject<bool>(content);
+                    return worked;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public async Task<List<Place>> GetLikedPlaces(int userID)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/getlikedplaces?userID={userID}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    List<Place> places = JsonConvert.DeserializeObject<List<Place>>(content);
+                    return places;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public async Task<List<Feature>> GetFeaturesList(Place p)
+        {
+            try
+            {     
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/getfeatureslist?placeId={p.Id}&placeT={p.PlaceTypeNavigation.TypeName}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    List<Feature> features = JsonConvert.DeserializeObject<List<Feature>>(content);
+                    return features;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public async Task<Order> MakeOrder(Place p, int totalHours, DateTime eventDate, int peopleAmount, DateTime startTime, DateTime endTime)
+        {
+            try
+            {
+                User user = ((App)App.Current).CurrentUser;
+
+                Order order = new Order()
+                {
+                    UserId = user.Id,
+                    PlaceId = p.Id,
+                    Price = p.Price,
+                    Total = (p.Price * totalHours),
+                    EventDate = eventDate,
+                    AmountOfPeople = peopleAmount,
+                    StartTime = startTime,
+                    EndTime = endTime,
+                    TotalHours = totalHours
+                };
+
+                string json = JsonConvert.SerializeObject(order);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                string url = $"{this.baseUri}/EventyAPI/makeorder";
+                HttpResponseMessage response = await this.client.PostAsync(url, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerSettings options = new JsonSerializerSettings
+                    {
+                        PreserveReferencesHandling = PreserveReferencesHandling.All
+                    };
+
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    Order returnedOrder = JsonConvert.DeserializeObject<Order>(jsonContent, options);
+                    return returnedOrder;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        public async Task<List<Order>> GetOrders(int userID)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/getorders?userID={userID}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    List<Order> orders = JsonConvert.DeserializeObject<List<Order>>(content);
+                    return orders;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public async Task<bool> UpdateProfileInfo(string firstName, string lastName, string phoneNum, string password)
+        {
+            try
+            {
+                string url = Uri.EscapeUriString($"{this.baseUri}/EventyAPI/updateprofileinfo?firstName={firstName}&lastName={lastName}&phoneNum={phoneNum}&password={password}");
+                HttpResponseMessage response = await this.client.GetAsync(url);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public async Task<List<Place>> GetEstates(int userID)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/getestates?userID={userID}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    List<Place> places = JsonConvert.DeserializeObject<List<Place>>(content);
+                    return places;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public async Task<bool> UpdatePlace(int totalOccupancy, string summary, string placeAddress, string apartment, string city, string zip, string country, int price, int placeId)
+        {
+            try
+            {
+                string url = Uri.EscapeUriString($"{this.baseUri}/EventyAPI/updateplaceinfo?totalOccupancy={totalOccupancy}&summary={summary}&placeAddress={placeAddress}&apartment={apartment}&city={city}&zip={zip}&country={country}&price={price}&placeId={placeId}");
+                HttpResponseMessage response = await this.client.GetAsync(url);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

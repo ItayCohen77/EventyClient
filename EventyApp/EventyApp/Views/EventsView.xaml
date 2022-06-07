@@ -4,23 +4,78 @@
              x:Class="EventyApp.Views.EventsView"
              NavigationPage.HasNavigationBar="False"
              xmlns:tabs="http://sharpnado.com">
-  <ContentView.Content>
-        <StackLayout Spacing="15" BackgroundColor="White">
-            <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Your events"/>
-            <BoxView Margin="20,20,20,0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
-            <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="No saves yet"/>
-            <Button  Margin="20,20,250,0"
-                     HeightRequest="40" 
-                     WidthRequest="50" 
-                     CornerRadius="5"                     
-                     TextColor="Black" 
-                     FontAttributes="Bold"
-                     Text="Start exploring"
-                     FontSize="16"
-                     BackgroundColor="White"
-                     BorderColor="Black"
-                     BorderWidth="1"
-                     Command="{Binding ExploreCommand}"/>
-        </StackLayout>
+    <ContentView.Content>
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <ScrollView>
+                <StackLayout Spacing="15" BackgroundColor="White">
+                    <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Your events"/>
+                    <BoxView Margin="20,20,20,0" HorizontalOptions="FillAndExpand" HeightRequest="0.5" Color="Gray"/>
+                    
+                    <StackLayout IsVisible="{Binding DoesNtHaveEvents}">
+                        <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="No saves yet"/>
+                        <Button Margin="20,20,250,0"
+                                 HeightRequest="40" 
+                                 WidthRequest="50" 
+                                 CornerRadius="5"                     
+                                 TextColor="Black" 
+                                 FontAttributes="Bold"
+                                 Text="Start exploring"
+                                 FontSize="16"
+                                 BackgroundColor="White"
+                                 BorderColor="Black"
+                                 BorderWidth="1"
+                                 Command="{Binding ExploreCommand}"/>
+                    </StackLayout>
+                    <StackLayout IsVisible="{Binding HaveEvents}">
+                        <CollectionView x:Name="foundeventsCollectionView" ItemsSource="{Binding FoundEvents}" Margin="0,15,0,0" SelectionMode="Single">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <RelativeLayout Padding="10">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup Name="CommonStates">
+                                                <VisualState Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+
+                                        <Frame Margin="25,0" BackgroundColor="white" CornerRadius="15" HeightRequest="100" WidthRequest="320" BorderColor="gray">
+                                            <StackLayout>
+                                                <Image Margin="-25,-7" Source="{Binding PlaceImage1}" HeightRequest="120" WidthRequest="120" HorizontalOptions="End"/>
+                                                <StackLayout Margin="7,-117,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="Event date:  " FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding EventDate, StringFormat='{0:MMMM dd, yyyy}'}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="18" FontAttributes="Bold" />
+                                                </StackLayout>
+                                                <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="City:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding Place.City}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                </StackLayout>
+                                                <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="People amount:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding AmountOfPeople}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                </StackLayout>
+                                                <StackLayout Margin="7,0,0,0" Orientation="Horizontal">
+                                                    <Label Margin="-10,0" Text="Event price:   " FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="{Binding Total}" HorizontalOptions="Start" Style="{StaticResource labelStyle}" FontSize="15" FontAttributes="Bold" />
+                                                    <Label Margin="-4,0" Text="$" FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Label Margin="0,0" Text="  (Paying in cash)" FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            
+                                            <!--<Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference foundplacesCollectionView}, Path=BindingContext.PlaceCommand}" CommandParameter="{Binding}"/>
+                                            </Frame.GestureRecognizers>-->
+                                        </Frame>
+                                    </RelativeLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
     </ContentView.Content>
 </ContentView>

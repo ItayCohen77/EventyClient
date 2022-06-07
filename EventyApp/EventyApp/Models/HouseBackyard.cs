@@ -8,6 +8,7 @@ namespace EventyApp.Models
     public partial class HouseBackyard
     {
         public int Id { get; set; }
+        public int PlaceId { get; set; }
         public bool HasPool { get; set; }
         public bool HasBbq { get; set; }
         public bool HasHotub { get; set; }

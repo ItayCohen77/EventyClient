@@ -54,6 +54,71 @@ namespace EventyApp.ViewModel
             }
 
         }
+
+        private bool featureTwoBool;
+
+        public bool FeatureTwoBool
+        {
+            get => featureTwoBool;
+            set
+            {
+                if (value != featureTwoBool)
+                {
+                    featureTwoBool = value;
+                    OnPropertyChanged("FeatureTwoBool");
+                }
+            }
+
+        }
+
+        private bool featureThreeBool;
+
+        public bool FeatureThreeBool
+        {
+            get => featureThreeBool;
+            set
+            {
+                if (value != featureThreeBool)
+                {
+                    featureThreeBool = value;
+                    OnPropertyChanged("FeatureThreeBool");
+                }
+            }
+
+        }
+
+        private bool featureFourBool;
+
+        public bool FeatureFourBool
+        {
+            get => featureFourBool;
+            set
+            {
+                if (value != featureFourBool)
+                {
+                    featureFourBool = value;
+                    OnPropertyChanged("FeatureFourBool");
+                }
+            }
+
+        }
+
+        private bool featureFiveBool;
+
+        public bool FeatureFiveBool
+        {
+            get => featureFiveBool;
+            set
+            {
+                if (value != featureFiveBool)
+                {
+                    featureFiveBool = value;
+                    OnPropertyChanged("FeatureFiveBool");
+                }
+            }
+
+        }
+
         private string description;
         public string Description
         {
@@ -226,7 +291,7 @@ namespace EventyApp.ViewModel
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.UploadPicsHEView(this.TypePlace, this.FeatureOne, this.FeatureTwo, this.FeatureThree, this.FeatureFour, this.FeatureFive, this.Description));
+            Push?.Invoke(new EventyApp.Views.HostEstateView.UploadPicsHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description));
         }
 
         public DescribeYourPlaceHEViewModel(string typePlace)

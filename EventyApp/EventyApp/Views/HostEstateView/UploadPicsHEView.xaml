@@ -35,18 +35,18 @@
 
                             <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
-                                    <Image Margin="0,-10" VerticalOptions="CenterAndExpand" Source="{Binding ImageOne}">
+                                    <Image Margin="0,-10" x:Name="ImageOne" VerticalOptions="CenterAndExpand" Source="default_pl.jpg">
                                         <Image.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                            <TapGestureRecognizer Command="{Binding UploadCommand}" CommandParameter="1"/>
                                         </Image.GestureRecognizers>
                                     </Image>
                                 </StackLayout>
                             </Frame>
                             <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
-                                    <Image Margin="0,-10" VerticalOptions="CenterAndExpand" Source="{Binding ImageTwo}">
+                                    <Image Margin="0,-10" x:Name="ImageTwo" VerticalOptions="CenterAndExpand" Source="default_pl.jpg">
                                         <Image.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                            <TapGestureRecognizer Command="{Binding UploadCommand}" CommandParameter="2"/>
                                         </Image.GestureRecognizers>
                                     </Image>
                                 </StackLayout>
@@ -54,9 +54,9 @@
                             <Frame Grid.Column="2" Grid.Row="0" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
                                     <StackLayout>
-                                        <Image Margin="0,-10" VerticalOptions="CenterAndExpand" Source="{Binding ImageThree}">
+                                        <Image Margin="0,-10" x:Name="ImageThree" VerticalOptions="CenterAndExpand" Source="default_pl.jpg">
                                             <Image.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                <TapGestureRecognizer Command="{Binding UploadCommand}" CommandParameter="3"/>
                                             </Image.GestureRecognizers>
                                         </Image>
                                     </StackLayout>
@@ -65,9 +65,9 @@
                             <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
                                     <StackLayout>
-                                        <Image Margin="0,-10" VerticalOptions="CenterAndExpand" Source="{Binding ImageFour}">
+                                        <Image Margin="0,-10" x:Name="ImageFour" VerticalOptions="CenterAndExpand" Source="default_pl.jpg">
                                             <Image.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                <TapGestureRecognizer Command="{Binding UploadCommand}" CommandParameter="4"/>
                                             </Image.GestureRecognizers>
                                         </Image>
                                     </StackLayout>
@@ -76,9 +76,9 @@
                             <Frame Grid.Column="0" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
                                     <StackLayout>
-                                        <Image Margin="0,-10" VerticalOptions="CenterAndExpand" Source="{Binding ImageFive}">
+                                        <Image Margin="0,-10" x:Name="ImageFive" VerticalOptions="CenterAndExpand" Source="default_pl.jpg">
                                             <Image.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                <TapGestureRecognizer Command="{Binding UploadCommand}" CommandParameter="5"/>
                                             </Image.GestureRecognizers>
                                         </Image>
                                     </StackLayout>
@@ -87,9 +87,9 @@
                             <Frame Grid.Column="2" Grid.Row="2" BackgroundColor="white" CornerRadius="15" HeightRequest="50" WidthRequest="50" BorderColor="Black">
                                 <StackLayout>
                                     <StackLayout>
-                                        <Image Margin="0,-10" VerticalOptions="CenterAndExpand" Source="{Binding ImageSix}">
+                                        <Image Margin="0,-10" x:Name="ImageSix" VerticalOptions="CenterAndExpand" Source="default_pl.jpg">
                                             <Image.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+                                                <TapGestureRecognizer Command="{Binding UploadCommand}" CommandParameter="6"/>
                                             </Image.GestureRecognizers>
                                         </Image>
                                     </StackLayout>

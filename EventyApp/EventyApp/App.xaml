@@ -6,6 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <converter:ImageSourceConverter x:Key="ImageSourceConverter" />
+            <converter:NegateBooleanConverter x:Key="NegateBooleanConverter" />
             <Color x:Key="primary">#FF5353</Color>
             <Style x:Key="labelStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start"/>

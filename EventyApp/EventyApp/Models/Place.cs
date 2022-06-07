@@ -36,5 +36,6 @@ namespace EventyApp.Models
         public virtual User Owner { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<PlaceMedium> PlaceMedia { get; set; }
+        public virtual PlaceType PlaceTypeNavigation { get; set; }
     }
 }

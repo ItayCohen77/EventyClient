@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Text;
 
 namespace EventyApp.Models
 {
-    public partial class UserAuthToken
+    public class LikedPlace
     {
         public int UserId { get; set; }
-        public string AuthToken { get; set; }
+        public int PlaceId { get; set; }
         public virtual User User { get; set; }
     }
 }
