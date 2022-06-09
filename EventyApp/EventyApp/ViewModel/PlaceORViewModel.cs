@@ -33,11 +33,13 @@ namespace EventyApp.ViewModel
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.TotalHours = totalHours;
-            this.PlaceId = placeId;
+            this.PlaceId = placeId;          
             proxy = EventyAPIProxy.CreateProxy();
             fList = new List<Feature>();
 
             Start();
+
+            
 
             User currentUser = ((App)App.Current).CurrentUser;
             
@@ -55,6 +57,7 @@ namespace EventyApp.ViewModel
 
             Source = new List<SliderImage>();
             Feature = new List<Feature>();
+            this.TotalPrice = (this.Place.Price * TotalHours);
 
             await GetFeaturesList();
             CreateImagesCollection();         
@@ -277,6 +280,23 @@ namespace EventyApp.ViewModel
                 {
                     this.place = value;
                     OnPropertyChanged(nameof(Place));
+                }
+            }
+        }
+
+        private int totalPrice;
+        public int TotalPrice
+        {
+            get
+            {
+                return this.totalPrice;
+            }
+            set
+            {
+                if (this.totalPrice != value)
+                {
+                    this.totalPrice = value;
+                    OnPropertyChanged(nameof(TotalPrice));
                 }
             }
         }

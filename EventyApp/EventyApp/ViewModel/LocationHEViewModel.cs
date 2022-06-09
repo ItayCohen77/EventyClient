@@ -332,10 +332,66 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private string error;
+        public string Error
+        {
+            get
+            {
+                return this.error;
+            }
+            set
+            {
+                if (this.error != value)
+                {
+                    this.error = value;
+                    OnPropertyChanged(nameof(Error));
+                }
+            }
+        }
+
+        private bool showError;
+        public bool ShowError
+        {
+            get
+            {
+                return this.showError;
+            }
+            set
+            {
+                if (this.showError != value)
+                {
+                    this.showError = value;
+                    OnPropertyChanged(nameof(ShowError));
+                }
+            }
+        }
+        private void ValidateAdd()
+        {
+            if (Street == null || Country == null || Zip == null || City == null)
+            {
+                this.Error = "Please fill all the entries (Aparment is optional)";
+                this.ShowError = true;
+            }
+            else
+            {
+                this.ShowError = false;
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            ValidateAdd();
+
+            return !(ShowError);
+        }
+
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.MaxGuestsHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description, this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix, this.Street, this.Apartment, this.City, this.Zip, this.Country));
+            if(ValidateForm())
+            {
+                Push?.Invoke(new EventyApp.Views.HostEstateView.MaxGuestsHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description, this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix, this.Street, this.Apartment, this.City, this.Zip, this.Country));
+            }      
         }
 
         public LocationHEViewModel(string typePlace, bool featureOneBool, bool featureTwoBool, bool featureThreeBool, bool featureFourBool, bool featureFiveBool, string description, FileResult imageOne, FileResult imageTwo, FileResult imageThree, FileResult imageFour, FileResult imageFive, FileResult imageSix)

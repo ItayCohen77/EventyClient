@@ -368,11 +368,68 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private string error;
+        public string Error
+        {
+            get
+            {
+                return this.error;
+            }
+            set
+            {
+                if (this.error != value)
+                {
+                    this.error = value;
+                    OnPropertyChanged(nameof(Error));
+                }
+            }
+        }
+
+        private bool showError;
+        public bool ShowError
+        {
+            get
+            {
+                return this.showError;
+            }
+            set
+            {
+                if (this.showError != value)
+                {
+                    this.showError = value;
+                    OnPropertyChanged(nameof(ShowError));
+                }
+            }
+        }
+
+        private void ValidateMax()
+        {
+            if (MaxPeople == 0 || CostPerHour == 0)
+            {
+                this.Error = "Please choose a number that is not 0 (People amount and price per hour)";
+                this.ShowError = true;
+            }
+            else
+            {
+                this.ShowError = false;
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            ValidateMax();
+
+            return !(ShowError);
+        }
+
         public Command DoneCommand { protected set; get; }
         private async void Done()
         {
-            Place place = await proxy.UploadPlace(TypePlace, FeatureOneBool, FeatureTwoBool, FeatureThreeBool, FeatureFourBool, FeatureFiveBool, Description, ImageOne, ImageTwo, ImageThree, ImageFour, ImageFive, ImageSix, Street, Apartment, City, Zip, Country, MaxPeople, CostPerHour);
-            Push?.Invoke(new TabControlView());
+            if(ValidateForm())
+            {
+                Place place = await proxy.UploadPlace(TypePlace, FeatureOneBool, FeatureTwoBool, FeatureThreeBool, FeatureFourBool, FeatureFiveBool, Description, ImageOne, ImageTwo, ImageThree, ImageFour, ImageFive, ImageSix, Street, Apartment, City, Zip, Country, MaxPeople, CostPerHour);
+                Push?.Invoke(new TabControlView());
+            }     
         }
 
         public MaxGuestsHEViewModel(string typePlace, bool featureOneBool, bool featureTwoBool, bool featureThreeBool, bool featureFourBool, bool featureFiveBool, string description, FileResult imageOne, FileResult imageTwo, FileResult imageThree, FileResult imageFour, FileResult imageFive, FileResult imageSix, string street, string apartment, string city, string zip, string country)

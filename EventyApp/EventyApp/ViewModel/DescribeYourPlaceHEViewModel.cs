@@ -288,10 +288,67 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private string desError;
+        public string DesError
+        {
+            get
+            {
+                return this.desError;
+            }
+            set
+            {
+                if (this.desError != value)
+                {
+                    this.desError = value;
+                    OnPropertyChanged(nameof(DesError));
+                }
+            }
+        }
+
+        private bool showDesError;
+        public bool ShowDesError
+        {
+            get
+            {
+                return this.showDesError;
+            }
+            set
+            {
+                if (this.showDesError != value)
+                {
+                    this.showDesError = value;
+                    OnPropertyChanged(nameof(ShowDesError));
+                }
+            }
+        }
+
+        private void ValidateDes()
+        {
+            if (Description == null)
+            {
+                this.DesError = "Please fill the description entry";
+                this.ShowDesError = true;
+            }
+            else
+            {
+                this.ShowDesError = false;
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            ValidateDes();
+
+            return !(ShowDesError);
+        }
+
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.UploadPicsHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description));
+            if(ValidateForm())
+            {
+                Push?.Invoke(new EventyApp.Views.HostEstateView.UploadPicsHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description));
+            }            
         }
 
         public DescribeYourPlaceHEViewModel(string typePlace)

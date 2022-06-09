@@ -15,7 +15,7 @@ using System.Collections.ObjectModel;
 
 namespace EventyApp.ViewModel
 {
-    internal class UploadPicsHEViewModel
+    public class UploadPicsHEViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -250,10 +250,67 @@ namespace EventyApp.ViewModel
         }
         #endregion
 
+        private string picError;
+        public string PicError
+        {
+            get
+            {
+                return this.picError;
+            }
+            set
+            {
+                if (this.picError != value)
+                {
+                    this.picError = value;
+                    OnPropertyChanged(nameof(PicError));
+                }
+            }
+        }
+
+        private bool showPicError;
+        public bool ShowPicError
+        {
+            get
+            {
+                return this.showPicError;
+            }
+            set
+            {
+                if (this.showPicError != value)
+                {
+                    this.showPicError = value;
+                    OnPropertyChanged(nameof(ShowPicError));
+                }
+            }
+        }
+
+        private void ValidatePic()
+        {
+            if (ImageOne == null || ImageTwo == null || ImageThree == null || ImageFour == null || ImageFive == null || ImageSix == null)
+            {
+                this.PicError = "Please upload all 6 pictures";
+                this.ShowPicError = true;
+            }
+            else
+            {
+                this.ShowPicError = false;
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            ValidatePic();
+
+            return !(ShowPicError);
+        }
+
         public ICommand NextCommand => new Command(Next);
         private void Next()
         {
-            Push?.Invoke(new EventyApp.Views.HostEstateView.LocationHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description ,this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix));
+            if(ValidateForm())
+            {
+                Push?.Invoke(new EventyApp.Views.HostEstateView.LocationHEView(this.TypePlace, this.FeatureOneBool, this.FeatureTwoBool, this.FeatureThreeBool, this.FeatureFourBool, this.FeatureFiveBool, this.Description, this.ImageOne, this.ImageTwo, this.ImageThree, this.ImageFour, this.ImageFive, this.ImageSix));
+            }           
         }
 
         public Command UploadCommand => new Command<string>((n) => Upload(n));
