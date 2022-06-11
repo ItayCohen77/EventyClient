@@ -73,7 +73,7 @@ namespace EventyApp.ViewModel
 
             if (placemark != null)
             {
-                this.CurrentCity = placemark.Locality;
+                this.CurrentCity = "Hod hasharon";
             }               
         }
 

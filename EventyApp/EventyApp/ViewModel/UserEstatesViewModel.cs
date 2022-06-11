@@ -44,6 +44,11 @@ namespace EventyApp.ViewModel
                 this.DoesNtHaveEstates = true;
                 this.HaveEstates = false;
             }
+            if (FoundPlaces.Count == 0)
+            {
+                this.DoesNtHaveEstates = true;
+                this.HaveEstates = false;
+            }
         }
 
         private ObservableCollection<Place> foundPlaces;
@@ -116,7 +121,7 @@ namespace EventyApp.ViewModel
                 FoundPlaces.Add(place);
             }
 
-            if (this.FoundPlaces != null)
+            if (this.FoundPlaces.Count != 0)
             {
                 this.HaveEstates = true;
                 this.DoesNtHaveEstates = false;
@@ -138,7 +143,7 @@ namespace EventyApp.ViewModel
             this.FoundPlaces.Clear();
             IsRefreshing = true;
             GetEstates();
-            IsRefreshing = false;
+            IsRefreshing = false;          
         }
         public Command EditPlaceCommand { protected set; get; }
         private void EditPlace(Place p)

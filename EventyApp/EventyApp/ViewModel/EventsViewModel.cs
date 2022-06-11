@@ -29,6 +29,7 @@ namespace EventyApp.ViewModel
             FoundEvents = new ObservableCollection<Order>();
             currentUser = ((App)App.Current).CurrentUser;
             Start();
+            this.EventCommand = new Command<Order>((o) => ShowEvent(o));
         }
         public async void Start()
         {
@@ -37,6 +38,11 @@ namespace EventyApp.ViewModel
                 await GetOrders();
             }
             else
+            {
+                this.DoesNtHaveEvents = true;
+                this.HaveEvents = false;
+            }
+            if(FoundEvents.Count == 0)
             {
                 this.DoesNtHaveEvents = true;
                 this.HaveEvents = false;
@@ -130,7 +136,7 @@ namespace EventyApp.ViewModel
                 FoundEvents.Add(order);
             }
             
-            if (this.FoundEvents != null)
+            if (this.FoundEvents.Count != 0)
             {
                 this.HaveEvents = true;
                 this.DoesNtHaveEvents = false;
@@ -152,7 +158,12 @@ namespace EventyApp.ViewModel
             this.FoundEvents.Clear();
             IsRefreshing = true;
             GetOrders();
-            IsRefreshing = false;
+            IsRefreshing = false;          
+        }
+        public Command EventCommand { protected set; get; }
+        private void ShowEvent(Order o)
+        {
+            Push.Invoke(new EventyApp.Views.EventDetailsView(o));
         }
     }
 }

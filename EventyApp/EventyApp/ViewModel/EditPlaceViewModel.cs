@@ -193,39 +193,97 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private string error;
+        public string Error
+        {
+            get
+            {
+                return this.error;
+            }
+            set
+            {
+                if (this.error != value)
+                {
+                    this.error = value;
+                    OnPropertyChanged(nameof(Error));
+                }
+            }
+        }
+
+        private bool showError;
+        public bool ShowError
+        {
+            get
+            {
+                return this.showError;
+            }
+            set
+            {
+                if (this.showError != value)
+                {
+                    this.showError = value;
+                    OnPropertyChanged(nameof(ShowError));
+                }
+            }
+        }
+
+        private void ValidateAdd()
+        {
+            if (TotalOccupancy == 0 || Country == null || Zip == null || City == null || Summary == null || PlaceAddress == null || Price == 0)
+            {
+                this.Error = "Please fill all the entries (Aparment is optional)";
+                this.ShowError = true;
+            }
+            else
+            {
+                this.ShowError = false;
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            ValidateAdd();
+
+            return !(ShowError);
+        }
+
         public Command UpdateCommand => new Command(Update);
         public async void Update()
         {
-            //if (ValidateForm())
-            //{
-
-            bool updatePlaceSuccess = await proxy.UpdatePlace(TotalOccupancy, Summary, PlaceAddress, Apartment, City, Zip, Country, Price, Place.Id);
-            if (updatePlaceSuccess)
+            if (ValidateForm())
             {
-                Place.TotalOccupancy = this.TotalOccupancy;
-                Place.Summary = this.Summary;
-                Place.PlaceAddress = this.PlaceAddress;
-                Place.Apartment = this.Apartment;
-                Place.City = this.City;
-                Place.Zip = this.Zip;
-                Place.Country = this.Country;
-                Place.Price = this.Price;
-            }
+                bool updatePlaceSuccess = await proxy.UpdatePlace(TotalOccupancy, Summary, PlaceAddress, Apartment, City, Zip, Country, Price, Place.Id);
+                if (updatePlaceSuccess)
+                {
+                    Place.TotalOccupancy = this.TotalOccupancy;
+                    Place.Summary = this.Summary;
+                    Place.PlaceAddress = this.PlaceAddress;
+                    Place.Apartment = this.Apartment;
+                    Place.City = this.City;
+                    Place.Zip = this.Zip;
+                    Place.Country = this.Country;
+                    Place.Price = this.Price;
+                }
 
-            Push.Invoke(new TabControlView());
-            //}
+                Push.Invoke(new TabControlView());
+            }
         }
 
-        //public Command DeleteCommand => new Command(Delete);
-        //public async void Delete()
-        //{
-        //    //if (ValidateForm())
-        //    //{
+        public Command DeleteCommand => new Command(Delete);
+        public async void Delete()
+        {
+            bool deletePlaceSuccess = await proxy.DeletePlace(Place.Id);
 
-            
-
-        //    Push.Invoke(new TabControlView());
-        //    //}
-        //}
+            if(deletePlaceSuccess)
+            {
+                this.Place = null;
+                Push.Invoke(new TabControlView());
+            }
+            else
+            {
+                this.ShowError = true;
+                this.Error = "Cant delete a place with orders";
+            }           
+        }
     }
 }

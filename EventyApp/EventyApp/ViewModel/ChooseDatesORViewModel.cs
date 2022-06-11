@@ -25,7 +25,8 @@ namespace EventyApp.ViewModel
         public User currentUser;
         public ChooseDatesORViewModel(string city)
         {
-            Start(city);                 
+            Start(city);
+            EventDate = DateTime.Now;
         }
 
         public async void Start(string city)

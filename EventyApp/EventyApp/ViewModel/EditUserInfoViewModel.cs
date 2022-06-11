@@ -143,11 +143,65 @@ namespace EventyApp.ViewModel
             }
         }
 
+        private string error;
+        public string Error
+        {
+            get
+            {
+                return this.error;
+            }
+            set
+            {
+                if (this.error != value)
+                {
+                    this.error = value;
+                    OnPropertyChanged(nameof(Error));
+                }
+            }
+        }
+
+        private bool showError;
+        public bool ShowError
+        {
+            get
+            {
+                return this.showError;
+            }
+            set
+            {
+                if (this.showError != value)
+                {
+                    this.showError = value;
+                    OnPropertyChanged(nameof(ShowError));
+                }
+            }
+        }
+
+        private void Validate()
+        {
+            if (FirstName == "" || LastName == "" || PhoneNum == "" || Password == "")
+            {
+                this.Error = "Please fill all the entries";
+                this.ShowError = true;
+            }
+            else
+            {
+                this.ShowError = false;
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            Validate();
+
+            return !(ShowError);
+        }
+
         public Command UpdateCommand => new Command(Update);
         public async void Update()
         {
-            //if (ValidateForm())
-            //{
+            if (ValidateForm())
+            {
 
                 bool updateProfileSuccess = await proxy.UpdateProfileInfo(FirstName, LastName, PhoneNum, Password);
                 if (updateProfileSuccess)
@@ -159,7 +213,7 @@ namespace EventyApp.ViewModel
                 }
 
                 Push.Invoke(new TabControlView());
-            //}
+            }
         }
     }
 }

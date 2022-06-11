@@ -661,5 +661,43 @@ namespace EventyApp.Services
                 return false;
             }
         }
+        public async Task<bool> Logout()
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/EventyAPI/logout");
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public async Task<bool> DeletePlace(int placeId)
+        {
+            try
+            {
+                string url = Uri.EscapeUriString($"{this.baseUri}/EventyAPI/deleteplace?placeId={placeId}");
+                HttpResponseMessage response = await this.client.GetAsync(url);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public async Task<bool> CancelEvent(int orderId)
+        {
+            try
+            {
+                string url = Uri.EscapeUriString($"{this.baseUri}/EventyAPI/cancelevent?orderId={orderId}");
+                HttpResponseMessage response = await this.client.GetAsync(url);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

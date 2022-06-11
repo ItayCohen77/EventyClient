@@ -8,25 +8,35 @@
         <ScrollView>
             <StackLayout Spacing="15" BackgroundColor="White">
                 <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Update some place information"/>
-                <Frame Margin="30,20,30,0" CornerRadius="11" BorderColor="Gray" HeightRequest="590" WidthRequest="60" Padding="0">
+                <Frame Margin="30,20,30,0" CornerRadius="11" BorderColor="Gray" HeightRequest="900" WidthRequest="60" Padding="0">
                     <StackLayout>
-                        <local:MyEntry Margin="7,20,0,10" PlaceholderColor="LightGray" Text="{Binding TotalOccupancy}" />
+                        <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Total Occupancy"/>
+                        <local:MyEntry Margin="7,10,0,5" PlaceholderColor="LightGray" Text="{Binding TotalOccupancy}" />
                         <BoxView Margin="1,10,1,10"  HeightRequest="1" Color="Gray"/>
-                        <Editor Margin="20,7,20,-57" Text="{Binding Summary}" AutoSize="TextChanges" Placeholder="Describe your place"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Summary"/>
+                        <Editor Margin="18,3,20,-57" Text="{Binding Summary}" AutoSize="TextChanges" Placeholder="Describe your place"/>
                         <BoxView Margin="1,74,1,10"  HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Address"/>
                         <local:MyEntry Margin="7" PlaceholderColor="LightGray" Text="{Binding PlaceAddress}"/>
                         <BoxView Margin="1,10,1,10"  HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Apartment"/>
                         <local:MyEntry Margin="7" PlaceholderColor="LightGray" Text="{Binding Apartment}" />
                         <BoxView Margin="1,10,1,10" HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="City"/>
                         <local:MyEntry Margin="7,10,20,-53" PlaceholderColor="LightGray" Text="{Binding City}" />
                         <BoxView Margin="1,70,1,10" HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Zip"/>
                         <local:MyEntry Margin="7,10,20,-53" PlaceholderColor="LightGray" Text="{Binding Zip}" />
                         <BoxView Margin="1,70,1,10" HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Country"/>
                         <local:MyEntry Margin="7,10,20,-53" PlaceholderColor="LightGray" Text="{Binding Country}" />
                         <BoxView Margin="1,65,1,10" HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Price"/>
                         <local:MyEntry Margin="7,10,20,-53" PlaceholderColor="LightGray" Text="{Binding Price}" />
                     </StackLayout>
                 </Frame>
+
+                <Label IsVisible="{Binding ShowError}" HorizontalOptions="Center" Style="{StaticResource labelStyle}" TextColor="Red" FontSize="15" FontAttributes="Bold" Text="{Binding Error}"/>
 
                 <Button Margin="37,25,37,10"
                         HeightRequest="50"

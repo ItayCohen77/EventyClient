@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EventyApp;assembly=EventyApp"
+             xmlns:datepicker="clr-namespace:EventyApp.Renderer"
+             x:Class="EventyApp.Views.EventDetailsView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="15" BackgroundColor="White">
+                <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="31" FontAttributes="Bold" Text="Event Details"/>
+                <Frame Margin="30,20,30,0" CornerRadius="11" BorderColor="Gray" HeightRequest="605" WidthRequest="60" Padding="0">
+                    <StackLayout>
+                        <Label Margin="20,20,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Event date"/>
+                        <Label Margin="20,10,0,5" TextColor ="Black" FontSize="16" Text="{Binding EventDate, StringFormat='{0:MMMM dd, yyyy}'}" />
+                        <BoxView Margin="1,10,1,10"  HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,2,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="City"/>
+                        <Label Margin="20,3,20,-57" TextColor ="Black" FontSize="16" Text="{Binding City}"/>
+                        <BoxView Margin="1,70,1,10"  HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,2,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Place address"/>
+                        <Label Margin="20,3,20,-57" TextColor ="Black" FontSize="16" Text="{Binding Address}"/>
+                        <BoxView Margin="1,74,1,10"  HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,2,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="People amount"/>
+                        <Label Margin="20,7" TextColor ="Black" FontSize="16" Text="{Binding Amountofpeople}"/>
+                        <BoxView Margin="1,2,1,7"  HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Total price"/>
+                        <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                            <Label Margin="20,7,0,7" TextColor ="Black" FontSize="16" Text="{Binding Total}" />
+                            <Label Margin="-4,8" Text="$" FontSize="15" TextColor="Black"/>
+                        </StackLayout>
+                        <BoxView Margin="1,10,1,10" HeightRequest="1" Color="Gray"/>
+                        <Label Margin="20,7,0,0" Style="{StaticResource labelStyle}" FontSize="20" FontAttributes="Bold" Text="Total hours"/>
+                        <Label Margin="21,7,20,-53" TextColor ="Black" FontSize="16" Text="{Binding Totalhours}" />
+                    </StackLayout>
+                </Frame>
+
+                
+
+                <Button Margin="37,25,37,10"
+                        HeightRequest="50"
+                        CornerRadius="5"
+                        TextColor="White" 
+                        Text="Cancel event"
+                        FontSize="16"
+                        BackgroundColor="{StaticResource primary}"
+                        Command="{Binding CancelEventCommand}"/>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

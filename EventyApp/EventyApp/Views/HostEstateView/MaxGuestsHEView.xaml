@@ -24,7 +24,7 @@
                     <Frame Margin="0,170,0,-70" HeightRequest="800" BackgroundColor="white" CornerRadius="15">
                         <StackLayout>
                             <Label Margin="0,20" Text="Choose the maximum amount of people that can be in your space" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
-                            <numeric:SfNumericUpDown Minimum="0" Maximum="20" SpinButtonAlignment="Both" MaximumDecimalDigits="0" Value="{Binding MaxPeople}" IsEditable="True" TextAlignment="Center"/>
+                            <numeric:SfNumericUpDown Minimum="0" Maximum="100" SpinButtonAlignment="Both" MaximumDecimalDigits="0" Value="{Binding MaxPeople}" IsEditable="True" TextAlignment="Center"/>
                             <Label Margin="0,20" Text="Cost per hour" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
                             <numeric:SfNumericUpDown Minimum="0" SpinButtonAlignment="Both" MaximumDecimalDigits="0" Value="{Binding CostPerHour}" IsEditable="True" FormatString="c" TextAlignment="Center"/>
 

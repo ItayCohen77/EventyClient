@@ -24,6 +24,8 @@
                     </StackLayout>
                 </Frame>
 
+                <Label IsVisible="{Binding ShowError}" HorizontalOptions="Center" Style="{StaticResource labelStyle}" TextColor="Red" FontSize="15" FontAttributes="Bold" Text="{Binding Error}"/>
+
                 <Button Margin="37,25,37,10"
                         HeightRequest="50"
                         CornerRadius="5"

@@ -41,6 +41,11 @@ namespace EventyApp.ViewModel
                 this.DoesNtHaveLikedEvents = true;
                 this.HaveLikedEvents = false;
             }
+            if (FoundPlaces.Count == 0)
+            {
+                this.DoesNtHaveLikedEvents = true;
+                this.HaveLikedEvents = false;
+            }
         }
 
         private ObservableCollection<Place> foundPlaces;
@@ -110,10 +115,13 @@ namespace EventyApp.ViewModel
 
             foreach (Place place in likedPlaces)
             {
-                FoundPlaces.Add(place);
+                if(place != null)
+                {
+                    FoundPlaces.Add(place);
+                }                
             }
 
-            if(this.FoundPlaces != null)
+            if(this.FoundPlaces.Count != 0)
             {
                 this.HaveLikedEvents = true;
                 this.DoesNtHaveLikedEvents = false;
@@ -136,7 +144,7 @@ namespace EventyApp.ViewModel
             this.FoundPlaces.Clear();
             IsRefreshing = true;
             GetLikedPlaces();
-            IsRefreshing = false;
+            IsRefreshing = false;          
         }
     }
 }
